@@ -19,14 +19,15 @@ for how items move through states.
 
 <!-- Item currently being shipped, with its branch name. -->
 
-- **Build the Home / landing page** — `routine/home-page` — flagship page per
-  `docs/SPEC.md` §4.1.
+_(none)_
 
 ## Done
 
 <!-- Shipped + merged items, newest first. -->
 
-_(none)_
+- **Build the Home / landing page** — flagship hero, "what we do" pillars,
+  quick-facts strip, and closing CTA. Merged to `main` (local cycle, `pnpm verify`
+  green). Placeholder facts marked for the team.
 
 ## Icebox
 
