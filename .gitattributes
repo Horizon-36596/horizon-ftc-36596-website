@@ -1,0 +1,14 @@
+# Normalize line endings to LF for everyone. Prettier writes LF, CI runs on
+# Linux, and this keeps `pnpm format:check` from failing on Windows checkouts.
+* text=auto eol=lf
+
+# Binary/generated files git should not touch.
+pnpm-lock.yaml -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
