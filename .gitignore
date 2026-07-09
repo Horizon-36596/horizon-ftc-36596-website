@@ -35,3 +35,6 @@ pnpm-debug.log*
 
 # portable toolchain (local Node install, if used)
 /.tools/
+
+# machine-specific preview launch config
+.claude/launch.json
