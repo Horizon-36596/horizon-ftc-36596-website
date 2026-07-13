@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { PageHeader } from '@/components/PageHeader';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Sponsors',
-  description: `Sponsor ${site.teamName}, ${site.program} Team ${site.teamNumber}, and get in touch.`,
+  description: `Sponsor ${site.teamName}, ${site.program} Team ${site.teamNumber}.`,
 };
 
 export default function SponsorsPage() {
@@ -12,8 +13,8 @@ export default function SponsorsPage() {
     <>
       <PageHeader
         eyebrow="Partner with us"
-        title="Sponsors & contact"
-        intro="Your support puts tools in students' hands and a robot on the field. Here's why it matters — and how to reach us."
+        title="Sponsors"
+        intro="Your support puts tools in students' hands and a robot on the field. Here's why it matters."
       />
 
       <section className="container-page grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr]">
@@ -57,19 +58,17 @@ export default function SponsorsPage() {
           </div>
         </div>
 
-        {/* Contact card. */}
+        {/* Pointer to the contact page. */}
         <aside className="h-fit rounded-2xl border border-white/10 bg-white/[0.03] p-8">
-          <h2 className="text-xl font-semibold text-white">Get in touch</h2>
+          <h2 className="text-xl font-semibold text-white">
+            Ready to partner?
+          </h2>
           <p className="mt-3 text-sm text-slate-400">
-            Interested in sponsoring, or a student who wants to join? Reach out.
+            Reach out and we&rsquo;ll get back to you about sponsorship.
           </p>
-          {/* PLACEHOLDER: replace with the team's real contact email. */}
-          <a
-            href={`mailto:${site.contactEmail}`}
-            className="btn-primary mt-6 w-full"
-          >
-            Email the team
-          </a>
+          <Link href="/contact" className="btn-primary mt-6 w-full">
+            Contact the team
+          </Link>
         </aside>
       </section>
     </>

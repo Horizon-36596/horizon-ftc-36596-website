@@ -18,6 +18,7 @@ export const site = {
     { href: '/team', label: 'Team' },
     { href: '/robots', label: 'Robots' },
     { href: '/sponsors', label: 'Sponsors' },
+    { href: '/contact', label: 'Contact' },
   ],
 } as const;
 
