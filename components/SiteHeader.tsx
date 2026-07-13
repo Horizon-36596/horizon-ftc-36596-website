@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
+import { BrandMark } from '@/components/BrandMark';
 
 export function SiteHeader() {
   return (
@@ -7,14 +8,16 @@ export function SiteHeader() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="group flex items-center gap-2 font-semibold tracking-tight text-white"
+          className="group flex items-center gap-2.5 font-semibold tracking-tight text-white"
         >
-          <span
-            aria-hidden
-            className="h-2.5 w-2.5 rounded-full bg-brand shadow-[0_0_12px] shadow-brand transition group-hover:scale-125"
+          <BrandMark
+            size={30}
+            className="transition duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_theme(colors.brand.500/60)]"
           />
           {site.teamName}
-          <span className="text-slate-500">· {site.teamNumber}</span>
+          <span className="hidden text-slate-500 sm:inline">
+            · {site.teamNumber}
+          </span>
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           {site.nav.map((item) => (
