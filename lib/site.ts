@@ -11,13 +11,13 @@ export const site = {
   // <!-- PLACEHOLDER: confirm team mission / one-liner -->
   description:
     'Horizon is FTC Team 36596 — a robotics team engineering competitive robots and reaching outward to grow STEM in our community.',
-  // <!-- PLACEHOLDER: real contact email -->
-  contactEmail: 'team@example.com',
+  contactEmail: 'horizon36596@gmail.com',
   nav: [
     { href: '/', label: 'Home' },
     { href: '/team', label: 'Team' },
     { href: '/robots', label: 'Robots' },
     { href: '/sponsors', label: 'Sponsors' },
+    { href: '/contact', label: 'Contact' },
   ],
 } as const;
 

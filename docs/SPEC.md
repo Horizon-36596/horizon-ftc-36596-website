@@ -47,11 +47,13 @@ Launch set, ordered by value:
    season/robot teaser. The flagship page — highest design bar.
 2. **Team / About** — Horizon's story, mission, members and mentors, subteams
    (build / programming / outreach). Serves judges and prospective members.
-3. **Sponsors + Contact** — Why sponsor Horizon, sponsor tiers/logos, and a clear
-   way to reach the team (email/form). Serves sponsors; also the "join us"
-   endpoint for prospective members.
+3. **Sponsors** (`/sponsors`) — Why sponsor Horizon, sponsor tiers/logos.
+   Serves sponsors; links to Contact for the ask.
+4. **Contact** (`/contact`) — one clear way to reach the team (email CTA),
+   framed for all three audiences (sponsor / join / community). Split from
+   Sponsors so "join us" doesn't route through a funding pitch.
 
-4. **Robots** (`/robots`) — the team's robots season by season, technical-binder
+5. **Robots** (`/robots`) — the team's robots season by season, technical-binder
    style (inspired by team4414.com): each robot gets its own page with a main
    photo + design overview, and per-subsystem sub-pages
    (`/robots/<robot>/<subsystem>`). Content lives in `content/robots.ts` —
