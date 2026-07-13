@@ -65,7 +65,6 @@ export default function ContactPage() {
           <p className="mt-3 text-sm text-slate-400">
             The fastest way to reach the team. We read everything.
           </p>
-          {/* PLACEHOLDER: replace with the team's real contact email in lib/site.ts. */}
           <a
             href={`mailto:${site.contactEmail}`}
             className="btn-primary mt-6 w-full"
