@@ -28,7 +28,12 @@ non-generic — must not look like a default Tailwind tutorial. Strong typograph
 hierarchy, generous spacing, tasteful motion (subtle reveals, no gimmicks), fully
 responsive.
 
-- **Team colors:** <!-- PLACEHOLDER: awaiting team colors -->
+- **Team colors (official, team-supplied):** sunrise palette — amber `#FFCB5C`,
+  orange `#F86A43`, crimson `#B13848`, deep purple-black `#17061D`, black
+  `#000000`. Tokenized in `tailwind.config.ts` (`brand` scale + `night` scale).
+- **Brand assets (official, team-supplied):** in `public/brand/` — gradient and
+  white variants of the sun-over-horizon logo and square mark, plus the arced
+  gradient wordmark. Square gradient mark doubles as the favicon (`app/icon.svg`).
 - **Tagline:** <!-- PLACEHOLDER: awaiting team tagline -->
 - **Tone:** confident, welcoming, forward-looking (the name "Horizon" suggests
   looking ahead / new frontiers — lean into that visually).

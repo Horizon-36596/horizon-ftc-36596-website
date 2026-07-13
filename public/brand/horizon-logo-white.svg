@@ -1,0 +1,56 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 600"
+    fill="none">
+
+    <defs>
+
+        <!-- Solid White -->
+        <clipPath id="aboveHorizon">
+            <rect
+                x="0"
+                y="0"
+                width="1200"
+                height="396"/>
+        </clipPath>
+
+    </defs>
+
+    <!-- Sun -->
+    <g clip-path="url(#aboveHorizon)">
+        <circle
+            cx="600"
+            cy="325"
+            r="115"
+            fill="none"
+            stroke="#FFFFFF"
+            stroke-width="12"
+            stroke-linecap="round"/>
+    </g>
+
+    <!-- Horizon -->
+    <path
+        fill="#FFFFFF"
+        d="
+            M80 438
+
+            C250 412 425 396 600 396
+            C775 396 950 412 1120 438
+
+            C1105 437
+             930 420
+             760 413
+
+            C705 411
+             650 410
+             600 410
+
+            C550 410
+             495 411
+             440 413
+
+            C270 420
+             95 437
+             80 438
+            Z"/>
+</svg>

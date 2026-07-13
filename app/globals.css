@@ -35,4 +35,9 @@
   .btn-ghost {
     @apply inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/5;
   }
+
+  /* Brand sunrise gradient (amber → orange → crimson), for accent text. */
+  .text-sunrise {
+    @apply bg-gradient-to-r from-brand-300 via-brand-500 to-brand-700 bg-clip-text text-transparent;
+  }
 }

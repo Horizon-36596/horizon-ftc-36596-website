@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '@/lib/site';
+import { asset } from '@/lib/basePath';
 
 // Pillars shown on the home page. Copy is deliberately generic scaffolding that
 // the team can sharpen; nothing here asserts unverified specifics.
@@ -30,40 +32,61 @@ export default function HomePage() {
   return (
     <>
       {/* ------------------------------------------------------------------ */}
-      {/* Hero — the flagship first impression. The dawn/horizon glow nods to */}
-      {/* the team name and is a placeholder palette until colors are set.   */}
+      {/* Hero — the flagship first impression, built around the official     */}
+      {/* brand art: the gradient sun mark cresting above the arced wordmark. */}
       {/* ------------------------------------------------------------------ */}
       <section className="relative overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 -top-48 h-[42rem] bg-[radial-gradient(60%_60%_at_50%_0%,theme(colors.brand.500/25),transparent_70%)]"
+          className="pointer-events-none absolute inset-x-0 -top-48 h-[42rem] bg-[radial-gradient(60%_60%_at_50%_0%,theme(colors.brand.500/20),transparent_70%)]"
         />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"
         />
-        <div className="container-page relative flex min-h-[82vh] flex-col justify-center py-24">
-          <p
-            className="animate-fade-up text-sm font-semibold uppercase tracking-[0.2em] text-brand"
+        <div className="container-page relative flex min-h-[82vh] flex-col items-center justify-center py-24 text-center">
+          <Image
+            src={asset('/brand/horizon-mark-gradient.svg')}
+            alt=""
+            aria-hidden
+            width={104}
+            height={104}
+            unoptimized
+            priority
+            className="animate-fade-up drop-shadow-[0_0_28px_theme(colors.brand.500/45)]"
             style={{ animationDelay: '0ms' }}
+          />
+          <p
+            className="mt-8 animate-fade-up text-sm font-semibold uppercase tracking-[0.2em] text-brand-300"
+            style={{ animationDelay: '80ms' }}
           >
             {site.program} · Team {site.teamNumber}
           </p>
           <h1
-            className="mt-4 max-w-4xl animate-fade-up text-6xl font-bold leading-[1.02] tracking-tight text-white sm:text-8xl"
-            style={{ animationDelay: '80ms' }}
+            className="mt-6 w-full max-w-3xl animate-fade-up"
+            style={{ animationDelay: '160ms' }}
           >
-            {site.teamName}
+            <span className="sr-only">{site.teamName}</span>
+            <Image
+              src={asset('/brand/horizon-wordmark.svg')}
+              alt=""
+              aria-hidden
+              width={1347}
+              height={316}
+              unoptimized
+              className="h-auto w-full"
+              priority
+            />
           </h1>
           <p
-            className="mt-6 max-w-xl animate-fade-up text-lg text-slate-300 sm:text-xl"
-            style={{ animationDelay: '160ms' }}
+            className="mt-8 max-w-xl animate-fade-up text-lg text-slate-300 sm:text-xl"
+            style={{ animationDelay: '240ms' }}
           >
             {site.tagline}
           </p>
           <div
-            className="mt-10 flex animate-fade-up flex-wrap gap-3"
-            style={{ animationDelay: '240ms' }}
+            className="mt-10 flex animate-fade-up flex-wrap justify-center gap-3"
+            style={{ animationDelay: '320ms' }}
           >
             <Link href="/sponsors" className="btn-primary">
               Become a sponsor

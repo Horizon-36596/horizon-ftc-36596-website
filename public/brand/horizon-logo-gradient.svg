@@ -1,0 +1,104 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 600"
+    fill="none">
+
+    <defs>
+
+        <!-- Sun Gradient -->
+        <linearGradient
+            id="sunGradient"
+            x1="600"
+            y1="210"
+            x2="600"
+            y2="440"
+            gradientUnits="userSpaceOnUse">
+
+            <stop offset="0%" stop-color="#FFCB5C"/>
+            <stop offset="28%" stop-color="#FFCB5C"/>
+
+            <stop offset="60%" stop-color="#F86A43"/>
+            <stop offset="82%" stop-color="#F86A43"/>
+
+            <stop offset="100%" stop-color="#B13848"/>
+
+        </linearGradient>
+
+        <!-- Horizon Gradient -->
+        <linearGradient
+            id="horizonGradient"
+            x1="80"
+            y1="425"
+            x2="1120"
+            y2="425"
+            gradientUnits="userSpaceOnUse">
+
+            <stop offset="0%" stop-color="#B13848"/>
+            <stop offset="28%" stop-color="#D24D46"/>
+            <stop offset="45%" stop-color="#F06D44"/>
+            <stop offset="50%" stop-color="#F48A49"/>
+            <stop offset="55%" stop-color="#F06D44"/>
+            <stop offset="72%" stop-color="#D24D46"/>
+            <stop offset="100%" stop-color="#B13848"/>
+
+        </linearGradient>
+
+        <!-- Clip sun at horizon crest -->
+        <clipPath id="aboveHorizon">
+            <rect
+                x="0"
+                y="0"
+                width="1200"
+                height="396"/>
+        </clipPath>
+
+    </defs>
+
+    <!-- Sun -->
+    <g clip-path="url(#aboveHorizon)">
+        <circle
+            cx="600"
+            cy="325"
+            r="115"
+            fill="none"
+            stroke="url(#sunGradient)"
+            stroke-width="12"
+            stroke-linecap="round"/>
+    </g>
+
+    <!--
+        Horizon
+
+        This is generated from a single centerline:
+            M80 430
+            C250 404 425 388 600 388
+            C775 388 950 404 1120 430
+
+        with an approximately constant 16px offset
+        rather than simply moving the bottom curve downward.
+    -->
+    <path
+        fill="url(#horizonGradient)"
+        d="
+            M80 438
+
+            C250 412 425 396 600 396
+            C775 396 950 412 1120 438
+
+            C1105 437
+             930 420
+             760 413
+
+            C705 411
+             650 410
+             600 410
+
+            C550 410
+             495 411
+             440 413
+
+            C270 420
+             95 437
+             80 438
+            Z"/>
+</svg>
