@@ -51,11 +51,15 @@ Launch set, ordered by value:
    way to reach the team (email/form). Serves sponsors; also the "join us"
    endpoint for prospective members.
 
+4. **Robots** (`/robots`) — the team's robots season by season, technical-binder
+   style (inspired by team4414.com): each robot gets its own page with a main
+   photo + design overview, and per-subsystem sub-pages
+   (`/robots/<robot>/<subsystem>`). Content lives in `content/robots.ts` —
+   structure shipped ahead of content; robot names, photos, and write-ups are
+   `<!-- PLACEHOLDER -->` until the team supplies them.
+
 ### Icebox (not at launch)
 
-- **Robot** page — current season's robot, design highlights, past robots.
-  Deferred per team; promote when there's robot content to show.
-  <!-- PLACEHOLDER: confirm defer vs include -->
 - **Blog / Season updates**, **Outreach**, **Portfolio** — candidates for later.
 
 ## 5. Content rules
