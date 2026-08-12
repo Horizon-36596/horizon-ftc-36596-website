@@ -163,7 +163,8 @@ export default function TeamPage() {
                 <span className="font-semibold text-slate-300">
                   {cadChampionship.robotName}
                 </span>{' '}
-                — the winning entry
+                — the winning entry, competed as {cadChampionship.competedAs}.
+                Horizon&rsquo;s official in-season number is {site.teamNumber}.
               </figcaption>
             </figure>
           </div>

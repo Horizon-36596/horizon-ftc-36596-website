@@ -36,6 +36,13 @@ export const cadChampionship = {
   robotName: 'Ender',
 
   /**
+   * The number Horizon competed under in the CAD competition. Different from
+   * the official in-season team number, which is why the render reads 788 —
+   * called out on the page so judges and sponsors aren't left guessing.
+   */
+  competedAs: '788',
+
+  /**
    * The winning entry's render. Swap the file at this path to update it.
    * If the file is missing the page shows an instruction panel instead.
    */
