@@ -20,12 +20,13 @@ const pillars = [
   },
 ];
 
-// Quick facts. Values are PLACEHOLDER until the team confirms them.
+// Quick facts. Only confirmed facts belong here — an empty stat reads worse
+// than no stat, so anything unverified stays off the strip entirely.
 const facts = [
   { value: 'FTC', label: 'FIRST Tech Challenge' },
   { value: `#${site.teamNumber}`, label: 'Team number' },
-  { value: '20XX', label: 'Founded' }, // <!-- PLACEHOLDER -->
-  { value: '—', label: 'Members' }, // <!-- PLACEHOLDER -->
+  { value: 'Champions', label: 'Largest FTC CAD competition to date' },
+  { value: 'New team', label: 'Building our first seasons' },
 ];
 
 export default function HomePage() {
