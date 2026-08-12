@@ -19,6 +19,8 @@ export function RenderPlate({
   alt,
   hint,
   fallbackAspect = 'aspect-[16/9]',
+  width = 1600,
+  height = 900,
 }: {
   src: string;
   alt: string;
@@ -26,6 +28,9 @@ export function RenderPlate({
   hint?: string;
   /** Shape of the empty-state panel, matched to the artwork that's coming. */
   fallbackAspect?: string;
+  /** The image's real pixel size, so its space is reserved without layout shift. */
+  width?: number;
+  height?: number;
 }) {
   const exists = fs.existsSync(path.join(process.cwd(), 'public', src));
 
@@ -50,8 +55,8 @@ export function RenderPlate({
       <Image
         src={asset(src)}
         alt={alt}
-        width={2000}
-        height={1200}
+        width={width}
+        height={height}
         unoptimized
         className="h-auto w-full object-contain"
       />

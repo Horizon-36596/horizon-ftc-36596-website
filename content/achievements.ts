@@ -32,18 +32,26 @@ export const cadChampionship = {
   // <!-- PLACEHOLDER: results / event URL -->
   link: undefined as string | undefined,
 
+  /** The winning entry's name, confirmed by the team. */
+  robotName: 'Ender',
+
   /**
-   * The winning entry's render.
-   *
-   * TO ADD THE IMAGE: save the robot render as
-   *   public/awards/cad-champion-robot.png
-   * and this page will pick it up automatically. Until then a placeholder
-   * panel is shown instead.
+   * The winning entry's render. Swap the file at this path to update it.
+   * If the file is missing the page shows an instruction panel instead.
    */
-  image: '/awards/cad-champion-robot.png',
+  image: '/awards/ender-render.webp',
 
   /** Alt text for the render. */
-  imageAlt: 'The CAD entry Horizon designed to win the competition',
+  imageAlt:
+    'Ender — a carbon-fibre competition robot with a raised arm and purple intake roller',
+
+  /**
+   * The render's pixel dimensions. Used to reserve the right amount of space
+   * while the image loads so the page doesn't jump. If you swap the render for
+   * one with a different shape, update these two numbers to match.
+   */
+  imageWidth: 2048,
+  imageHeight: 817,
 
   /**
    * Paragraphs describing the entry. Add the design story here — one string

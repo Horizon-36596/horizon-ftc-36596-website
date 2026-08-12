@@ -80,8 +80,8 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
-            <div>
+          <div className="mt-10">
+            <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-sm font-semibold text-brand-300">
                 ✦ {cadChampionship.result}
               </span>
@@ -129,9 +129,10 @@ export default function TeamPage() {
                 </div>
               ) : (
                 <p className="mt-6 text-slate-400">
-                  A design that had to win on the strength of the engineering
-                  alone — no driver, no field, just the model. The full write-up
-                  of how it came together is coming.
+                  Meet {cadChampionship.robotName}. A design that had to win on
+                  the strength of the engineering alone — no driver, no field,
+                  just the model. The full write-up of how it came together is
+                  coming.
                 </p>
               )}
 
@@ -147,11 +148,24 @@ export default function TeamPage() {
               ) : null}
             </div>
 
-            <RenderPlate
-              src={cadChampionship.image}
-              alt={cadChampionship.imageAlt}
-              hint="Save the winning render to public/awards/cad-champion-robot.png and it appears here automatically."
-            />
+            {/* The render is a wide export, so it gets the full container
+                width rather than being squeezed into a side column. */}
+            <figure className="mt-12">
+              <RenderPlate
+                src={cadChampionship.image}
+                alt={cadChampionship.imageAlt}
+                width={cadChampionship.imageWidth}
+                height={cadChampionship.imageHeight}
+                fallbackAspect="aspect-[2048/817]"
+                hint="Save the winning render to public/awards/ender-render.webp and it appears here automatically."
+              />
+              <figcaption className="mt-4 text-center text-sm text-slate-500">
+                <span className="font-semibold text-slate-300">
+                  {cadChampionship.robotName}
+                </span>{' '}
+                — the winning entry
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
