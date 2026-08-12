@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader } from '@/components/PageHeader';
+import { RenderPlate } from '@/components/RenderPlate';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -46,6 +47,26 @@ export default function SponsorsPage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-white">
+              Sponsorship package
+            </h2>
+            <p className="mt-3 max-w-2xl text-slate-400">
+              The full breakdown of tiers, benefits, and where the money goes.
+            </p>
+            {/* The package is being designed separately. Drop the exported
+                image at the path below and it replaces this panel on the next
+                build — no code change needed. */}
+            <div className="mt-6 max-w-xl">
+              <RenderPlate
+                src="/sponsors/sponsorship-package.png"
+                alt="Horizon sponsorship package"
+                fallbackAspect="aspect-[8.5/11]"
+                hint="Save the finished package as public/sponsors/sponsorship-package.png and it appears here automatically."
+              />
             </div>
           </div>
 

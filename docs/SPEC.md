@@ -21,7 +21,22 @@ strong first impression in seconds and give each audience a clear next step.
 
 ## 3. Story & vibe
 
-<!-- PLACEHOLDER: team origin story + one-line mission. Awaiting team input. -->
+**Horizon is a new team — say so.** Confirmed by the team. The site must not
+imply history it doesn't have: no alumni counts, no multi-season retrospectives,
+no "behind the bots" style media archive, no padded awards list. Reference site
+for structure and tone is theseusrobotics.org, but its scale (20+ alumni, six
+robots, 65-photo gallery) does not transfer — borrow the _shape_, not the
+inventory. Newness is framed as an asset: every process and design decision is
+the team's own, nothing inherited.
+
+<!-- PLACEHOLDER: founding year, founders, school vs community, mission line. -->
+
+### Confirmed results
+
+- **Champions — the largest FTC CAD competition held to date.** Team-confirmed.
+  Data lives in `content/achievements.ts`; the winning render goes at
+  `public/awards/cad-champion-robot.png`. Competition name, date, and field size
+  are still unverified and stay hidden until filled in.
 
 **Aesthetic direction:** Polished & modern (team-specified). Precise, confident,
 non-generic — must not look like a default Tailwind tutorial. Strong typographic
@@ -47,8 +62,9 @@ Launch set, ordered by value:
    season/robot teaser. The flagship page — highest design bar.
 2. **Team / About** — Horizon's story, mission, members and mentors, subteams
    (build / programming / outreach). Serves judges and prospective members.
-3. **Sponsors** (`/sponsors`) — Why sponsor Horizon, sponsor tiers/logos.
-   Serves sponsors; links to Contact for the ask.
+3. **Sponsors** (`/sponsors`) — Why sponsor Horizon, sponsor tiers/logos, and
+   the sponsorship package (designed separately; image slot at
+   `public/sponsors/sponsorship-package.png`). Links to Contact for the ask.
 4. **Contact** (`/contact`) — one clear way to reach the team (email CTA),
    framed for all three audiences (sponsor / join / community). Split from
    Sponsors so "join us" doesn't route through a funding pitch.
