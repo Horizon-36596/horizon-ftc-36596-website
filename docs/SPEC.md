@@ -55,6 +55,15 @@ responsive.
 
 ## 4. Pages (information architecture)
 
+> **CURRENT STATE — coming-soon mode (set 2026-08-14).** The site serves a
+> single holding page (logo, team number, "revamping for the coming BIOBUZZ
+> season"). Every page below is **built and parked, not deleted**: the route
+> folders live at `app/_home`, `app/_team`, `app/_robots`, `app/_sponsors`,
+> `app/_contact` — a leading underscore is how Next.js keeps a folder out of
+> routing. 404s render the holding page too, so old links land gracefully.
+> Restore instructions are at the top of `lib/site.ts`. **Do not treat the
+> parked pages as missing work or re-create them.**
+
 Launch set, ordered by value:
 
 1. **Home / landing** — Hero with team name, tagline, and a one-line pitch;
