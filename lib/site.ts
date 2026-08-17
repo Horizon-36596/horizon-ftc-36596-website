@@ -17,8 +17,13 @@ export const site = {
 
   /** Sponsorship, partnerships, invoices. Published on the site. */
   businessEmail: 'business@horizon36596.org',
-  /** Where the contact form forwards. Not printed on the site as a mailto. */
-  formInbox: 'horizon36596@gmail.com',
+
+  /**
+   * The contact form's real destination is horizon36596@gmail.com, but that
+   * address is deliberately NOT in this file or anywhere else in the bundle —
+   * it would ship to every scraper that loads the page. The form posts to a
+   * FormSubmit alias instead; see components/ContactForm.tsx.
+   */
 
   socials: [
     {

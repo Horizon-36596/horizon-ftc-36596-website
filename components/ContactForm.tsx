@@ -12,20 +12,21 @@ import { ArrowRight, Mail } from '@/components/Icon';
 // message straight to the team inbox as an email. Nothing is stored on this
 // site and no third-party script runs on the page — it is one fetch on submit.
 //
-// FIRST SUBMISSION ONLY: FormSubmit emails the inbox a one-time confirmation
-// link. Until somebody clicks it, messages are held rather than delivered, so
-// send one test message and confirm it before pointing anyone at this page.
+// The endpoint below is FormSubmit's alias for the team inbox, activated and
+// issued 2026-08-17. It is deliberately the alias and not the address: posting
+// to the naked address would publish horizon36596@gmail.com in the page source
+// for every scraper that visits. The alias is a public form token, not a
+// secret — it can only deliver mail to the one inbox it was issued for.
 //
-// TO REDUCE SPAM LATER: after activating, FormSubmit issues a hashed endpoint
-// for the same inbox. Swap the email below for that hash and the address stops
-// appearing in the page source. Anything that accepts a plain form POST works
-// here — Formspree, Getform, Basin — just replace the URL.
+// Anything that accepts a plain form POST drops in here — Formspree, Getform,
+// Basin — just replace the URL.
 //
 // If the request fails for any reason, the form falls back to opening the
 // sender's mail client with the message already written out, so a submission is
 // never silently lost.
 // ---------------------------------------------------------------------------
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${site.formInbox}`;
+const FORM_ENDPOINT =
+  'https://formsubmit.co/ajax/d1797cf7aec751a84fda5a7defa563f0';
 
 const REASONS = [
   { value: 'sponsor', label: 'Sponsoring Horizon' },
@@ -56,14 +57,13 @@ export function ContactForm() {
 
   function validate(next = values): Errors {
     const found: Errors = {};
-    if (!next.name.trim()) found.name = 'Please tell us who you are.';
+    if (!next.name.trim()) found.name = 'Add your name.';
     if (!next.email.trim()) {
-      found.email = 'We need an address to reply to.';
+      found.email = 'Add an address so we can reply.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(next.email.trim())) {
       found.email = 'That address looks incomplete.';
     }
-    if (!next.message.trim())
-      found.message = 'Add a note so we know what to say back.';
+    if (!next.message.trim()) found.message = 'Add a message.';
     return found;
   }
 
@@ -94,7 +94,9 @@ export function ContactForm() {
       .filter(Boolean)
       .join('\n');
 
-    window.location.href = `mailto:${site.formInbox}?subject=${encodeURIComponent(
+    // The published address, not the inbox one — the whole point of the alias
+    // above is to keep the team's gmail out of the shipped bundle.
+    window.location.href = `mailto:${site.businessEmail}?subject=${encodeURIComponent(
       `[Website] ${reason} — ${values.name}`,
     )}&body=${encodeURIComponent(body)}`;
     setStatus('handed-off');
@@ -303,18 +305,18 @@ export function ContactForm() {
         {status === 'sent' ? (
           <span className="inline-flex items-center gap-2 text-brand-300">
             <Mail size={17} />
-            Sent. It is in the team inbox and one of us will reply.
+            Sent. We will reply.
           </span>
         ) : null}
         {status === 'handed-off' ? (
           <span className="inline-flex items-center gap-2 text-brand-300">
             <Mail size={17} />
-            We could not reach our form service, so your email app should be
-            open with the message ready. Press send and it reaches us.
+            Our form service did not answer, so your email app should be open
+            with the message ready. Press send.
           </span>
         ) : null}
         {status === 'failed'
-          ? 'That did not go through. Please email us directly and we will pick it up.'
+          ? 'That did not go through. Email us directly and we will pick it up.'
           : null}
       </p>
     </form>

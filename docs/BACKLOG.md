@@ -5,12 +5,6 @@ for how items move through states.
 
 ## Next up
 
-0. **Activate the contact form** — FormSubmit sends a one-time confirmation
-   link to `horizon36596@gmail.com` on the very first submission. Send one test
-   message from `/contact/` and click that link, or every message after it is
-   held rather than delivered. **Blocks the form working at all.**
-   (human-only — needs inbox access)
-
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
 1. **Fill in the mentor roster** — `content/team.ts` → `mentors` currently holds
@@ -44,6 +38,12 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Contact form live** (2026-08-17) — activated and confirmed by the team. Now
+  posts to FormSubmit's alias rather than the naked address, so the team's gmail
+  is no longer in the shipped build. Contact copy cut back to short lines.
+- **Favicon** (2026-08-17) — the brand mark unchanged on a `#17061D` ground.
+  An earlier pass redrew the geometry (solid sun, heavier horizon) to survive
+  16px; the team rejected that, so the mark stands as supplied.
 - **First sponsors, page split, and a working form** (2026-08-16) — Tektite
   signed at Bronze (Charge 3B chargers); GitHub and Canva recognised in a new
   Nonprofit Services band. The pitch moved to `/support` and `/sponsors` became

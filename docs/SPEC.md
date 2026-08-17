@@ -64,11 +64,11 @@ responsive.
   `#000000`. Tokenized in `tailwind.config.ts` (`brand` scale + `night` scale).
 - **Brand assets (official, team-supplied):** in `public/brand/` — gradient and
   white variants of the sun-over-horizon logo, the square mark, and the arced
-  wordmark. The favicon (`app/icon.svg`) is **not** one of these reused — it is
-  a purpose-drawn reduction of the mark, on the night ground, with a solid sun
-  instead of the brand's open ring and a heavier horizon. The mark as supplied
-  is transparent and drawn in hairlines, which at 16px is a few stray warm
-  pixels on a light tab strip. Keep the two in step but do not merge them. Use
+  wordmark. The favicon (`app/icon.svg`) is the mark **unchanged** — same ring,
+  same horizon, same scale — on a solid `#17061D` ground, square corners, no
+  glow. Team-specified 2026-08-17. The ground is there because the supplied
+  mark is transparent and reduces to stray warm pixels on a light tab strip;
+  the geometry is not to be redrawn to suit small sizes. Use
   the gradient wordmark where it is the focal point (the hero) and the white one
   where it should recede (the footer); two gradient marks in one block read as a
   second logo moment rather than a sign-off.
@@ -115,8 +115,11 @@ Launch set, ordered by value:
      read as equal weight. Original vectors are archived in `public/sponsors/`.
 5. **Contact** (`/contact`) — one clear way to reach the team, framed for all
    three audiences (sponsor / join / community). The form POSTs to FormSubmit,
-   which forwards to `site.formInbox`; if that request fails it falls back to a
-   prefilled mail-client handoff so a message is never lost.
+   which forwards to the team's gmail. That address appears **nowhere** in the
+   repo or the build — the form posts to a FormSubmit alias instead, so it
+   never ships to scrapers, and the mail-client fallback uses the published
+   `businessEmail`. Confirm with `grep -r gmail out/` after any change here.
+   If the POST fails, the fallback opens a prefilled message so nothing is lost.
 
 6. **Robots** (`/robots`) — the team's robots season by season, technical-binder
    style (inspired by team4414.com): each robot gets its own page with a main

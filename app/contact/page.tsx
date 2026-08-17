@@ -13,21 +13,21 @@ export const metadata: Metadata = {
     'Get in touch with Horizon about sponsorship, joining the team, mentoring, or collaborating. We read everything and we answer.',
 };
 
-// Three audiences arrive on this page for three different reasons, so the page
-// says so plainly instead of making everyone use one undifferentiated "contact
-// us" box. The form's first question is which one you are.
+// Three audiences arrive here for three different reasons, so the page says so
+// plainly instead of giving everyone one undifferentiated "contact us" box. The
+// form's first question is which one you are.
 const AUDIENCES = [
   {
     heading: 'Sponsors',
-    body: 'Ask us for the sponsorship package, a custom invoice, or a meeting. We can talk about in-kind support and goods or services as readily as about money.',
+    body: 'Ask for the sponsorship package, an invoice, or a meeting. In-kind support counts.',
   },
   {
     heading: 'Students',
-    body: 'We are recruiting and training new members through the summer and the offseason. Prior FTC experience is not required and never has been.',
+    body: 'We are recruiting through the summer and the offseason. No prior experience needed.',
   },
   {
     heading: 'Teams and mentors',
-    body: 'We already support seven other FTC teams. If you want help, want to collaborate, or want to mentor, this is the right address.',
+    body: 'We support seven other FTC teams. Ask for help, or offer it.',
   },
 ];
 
@@ -39,10 +39,8 @@ export default function ContactPage() {
         title="Get in touch"
         lead={
           <p>
-            There is one team inbox and four people reading it. Whether you are
-            a company weighing a sponsorship, a student wondering whether you
-            would fit here, or another team with a question, the same message
-            box gets you to us.
+            One inbox, four people reading it. Sponsorship, joining the team, or
+            anything else — it all comes to the same place.
           </p>
         }
       />
@@ -54,8 +52,7 @@ export default function ContactPage() {
               Send us a message
             </h2>
             <p className="mt-3 font-prose text-[1rem] leading-relaxed text-haze-400">
-              This goes straight to the team inbox. Nothing is stored on this
-              site, and you will get a reply from a person.
+              Goes straight to the team inbox. Nothing is stored on this site.
             </p>
             <div className="mt-9">
               <ContactForm />
@@ -145,9 +142,8 @@ export default function ContactPage() {
           </h2>
           <Prose className="mx-auto mt-6 text-center">
             <p>
-              Horizon is a community team, which means we are not tied to a
-              single school and members come from across the area. We meet
-              through the summer and the offseason as well as during the season.
+              A community team, so members come from across the area rather than
+              one school. We meet year round.
             </p>
           </Prose>
         </Reveal>
