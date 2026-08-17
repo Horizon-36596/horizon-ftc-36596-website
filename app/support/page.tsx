@@ -5,7 +5,7 @@ import { Section, SectionHeading } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { BudgetBreakdown } from '@/components/BudgetBreakdown';
 import { TierTable } from '@/components/TierTable';
-import { ArrowRight, ArrowUpRight, Mail } from '@/components/Icon';
+import { ArrowUpRight, Mail } from '@/components/Icon';
 import {
   customAskNote,
   impactAreas,
@@ -211,20 +211,6 @@ export default function SupportPage() {
               {site.businessEmail}
             </a>
           </div>
-        </Reveal>
-      </Section>
-
-      {/* Close on the other route in, for anyone who would rather talk first. */}
-      <Section tone="sunk">
-        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-xl font-prose text-[1.0625rem] leading-relaxed text-haze-300">
-            Would rather talk it through first, or need an invoice, a custom
-            amount, or in-kind support? Send us a message and a person answers.
-          </p>
-          <Link href="/contact/" className="btn-primary shrink-0">
-            Get in touch
-            <ArrowRight size={17} />
-          </Link>
         </Reveal>
       </Section>
     </>
