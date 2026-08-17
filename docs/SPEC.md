@@ -64,7 +64,11 @@ responsive.
   `#000000`. Tokenized in `tailwind.config.ts` (`brand` scale + `night` scale).
 - **Brand assets (official, team-supplied):** in `public/brand/` — gradient and
   white variants of the sun-over-horizon logo, the square mark, and the arced
-  wordmark. Square gradient mark doubles as the favicon (`app/icon.svg`). Use
+  wordmark. The favicon (`app/icon.svg`) is **not** one of these reused — it is
+  a purpose-drawn reduction of the mark, on the night ground, with a solid sun
+  instead of the brand's open ring and a heavier horizon. The mark as supplied
+  is transparent and drawn in hairlines, which at 16px is a few stray warm
+  pixels on a light tab strip. Keep the two in step but do not merge them. Use
   the gradient wordmark where it is the focal point (the hero) and the white one
   where it should recede (the footer); two gradient marks in one block read as a
   second logo moment rather than a sign-off.

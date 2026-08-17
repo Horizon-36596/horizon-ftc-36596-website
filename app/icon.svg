@@ -2,26 +2,36 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1200 1200">
 
-    <defs>
+    <!--
+      The favicon is a 16px reduction, so it is a deliberately simplified cut of
+      the brand mark rather than the mark itself:
 
-        <!-- Sun -->
-        <linearGradient id="sunGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="0%"
-                        y2="100%">
+        - It sits on the night ground instead of on transparency. Transparent,
+          the gradient reads as a few stray warm pixels on a light tab strip.
+        - The sun is solid, not the brand's open ring. A 25-unit ring stroke is
+          a third of a pixel at 16px and disappears; a disc survives any size.
+        - The ink fills the canvas. The full mark leaves most of the square
+          empty, which costs the icon half its apparent size again.
+
+      Gradients use userSpaceOnUse so their coordinates are the viewBox's, not
+      each path's bounding box.
+    -->
+
+    <defs>
+        <linearGradient id="sun"
+                        gradientUnits="userSpaceOnUse"
+                        x1="600" y1="315"
+                        x2="600" y2="695">
             <stop offset="0%" stop-color="#FFCB5C"/>
-            <stop offset="32%" stop-color="#FFCB5C"/>
-            <stop offset="66%" stop-color="#F86A43"/>
+            <stop offset="34%" stop-color="#FFCB5C"/>
+            <stop offset="70%" stop-color="#F86A43"/>
             <stop offset="100%" stop-color="#B13848"/>
         </linearGradient>
 
-        <!-- Horizon -->
-        <linearGradient id="horizonGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="0%">
+        <linearGradient id="horizon"
+                        gradientUnits="userSpaceOnUse"
+                        x1="100" y1="0"
+                        x2="1100" y2="0">
             <stop offset="0%" stop-color="#B13848"/>
             <stop offset="38%" stop-color="#F86A43"/>
             <stop offset="50%" stop-color="#FF884F"/>
@@ -29,46 +39,33 @@
             <stop offset="100%" stop-color="#B13848"/>
         </linearGradient>
 
-        <mask id="sun-mask">
-            <rect width="1200" height="1200" fill="white"/>
-
-            <path
-                d="
-                    M205 778
-                    C355 730 515 705 600 705
-                    C685 705 845 730 995 778
-                    L1200 1200
-                    L0 1200
-                    Z"
-                fill="black"/>
-        </mask>
-
+        <!-- Warmth rising off the line. Invisible at 16px, depth at 512. -->
+        <radialGradient id="glow"
+                        gradientUnits="userSpaceOnUse"
+                        cx="600" cy="700" r="520">
+            <stop offset="0%" stop-color="#F86A43" stop-opacity="0.30"/>
+            <stop offset="100%" stop-color="#F86A43" stop-opacity="0"/>
+        </radialGradient>
     </defs>
 
-    <!-- Horizon -->
+    <!-- Ground -->
+    <rect width="1200" height="1200" rx="180" fill="#17061D"/>
+    <rect width="1200" height="1200" rx="180" fill="url(#glow)"/>
+
+    <!-- Sun, drawn first so the horizon crosses in front of it -->
+    <circle cx="600" cy="505" r="190" fill="url(#sun)"/>
+
+    <!-- Horizon. Flatter than the brand curve and about twice its weight:
+         the drawn line is a hairline at tab size, and the deep sag the full
+         mark uses drops the ends into the corners where they are cropped. -->
     <path
         d="
-            M205 778
-            C355 730 515 705 600 705
-            C685 705 845 730 995 778
-            C865 752 725 738 600 738
-            C475 738 335 752 205 778
+            M100 772
+            C330 692 470 648 600 648
+            C730 648 870 692 1100 772
+            C870 742 730 748 600 748
+            C470 748 330 742 100 772
             Z"
-        fill="url(#horizonGradient)"/>
-
-    <!-- Sun -->
-    <path
-        mask="url(#sun-mask)"
-        d="
-            M600 435
-            A155 155 0 1 1 600 745
-            A155 155 0 1 1 600 435
-
-            M600 460
-            A130 130 0 1 0 600 720
-            A130 130 0 1 0 600 460
-            Z"
-        fill="url(#sunGradient)"
-        fill-rule="evenodd"/>
+        fill="url(#horizon)"/>
 
 </svg>
