@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="250mm"
+   height="175mm"
+   viewBox="0 0 250 174.99999"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="TektiteBanner.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.43566658"
+     inkscape:cx="350.03833"
+     inkscape:cy="332.82333"
+     inkscape:window-width="1512"
+     inkscape:window-height="851"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="M 37.642407,70.826036 H 23.669734 V 109.07049 H 15.404209 V 70.826036 H 1.5627348 V 63.8069 H 37.642407 Z m 35.292543,31.618914 0.393597,6.23194 q -5.969546,0.5248 -19.942219,0.5248 -4.460759,0 -7.084736,-2.29598 -2.558376,-2.29598 -2.623976,-6.29755 V 72.269223 q 0.0656,-4.001564 2.623976,-6.297543 2.623977,-2.295979 7.084736,-2.295979 13.972673,0 19.942219,0.524795 L 72.93495,70.498039 H 55.223111 q -1.771184,0 -2.558376,0.852792 -0.721594,0.852792 -0.721594,2.951973 v 7.937528 h 18.564631 v 6.297543 H 51.943141 v 10.102308 q 0,2.099177 0.721594,2.951977 0.787192,0.85279 2.558376,0.85279 z M 93.533219,88.669074 H 89.07246 q 0.459195,2.09918 0.459195,4.460759 V 109.07049 H 81.33173 V 63.8069 h 8.199925 v 13.316679 q 0,2.886373 -0.459195,5.247952 h 4.460759 L 105.93151,63.8069 h 8.92152 l -12.20149,18.236634 q -1.11519,1.771184 -3.017577,3.411169 v 0.196798 q 2.295977,1.902383 3.542367,3.870365 l 12.52949,19.548624 H 106.5219 Z M 153.88463,70.826036 h -13.97267 v 38.244454 h -8.26553 V 70.826036 H 117.80496 V 63.8069 h 36.07967 z m 14.62873,38.244454 h -8.19993 V 63.8069 h 8.19993 z m 42.50838,-38.244454 h -13.97267 v 38.244454 h -8.26553 V 70.826036 H 174.94207 V 63.8069 h 36.07967 z m 35.29253,31.618914 0.3936,6.23194 q -5.96955,0.5248 -19.94222,0.5248 -4.46076,0 -7.08474,-2.29598 -2.55837,-2.29598 -2.62397,-6.29755 V 72.269223 q 0.0656,-4.001564 2.62397,-6.297543 2.62398,-2.295979 7.08474,-2.295979 13.97267,0 19.94222,0.524795 l -0.3936,6.297543 h -17.71184 q -1.77118,0 -2.55837,0.852792 -0.7216,0.852792 -0.7216,2.951973 v 7.937528 h 18.56463 v 6.297543 h -18.56463 v 10.102308 q 0,2.099177 0.7216,2.951977 0.78719,0.85279 2.55837,0.85279 z"
+       id="text1"
+       style="font-weight:600;font-size:65.5994px;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, Semi-Bold';stroke-width:0.758105"
+       aria-label="TEKTITE" />
+  </g>
+</svg>

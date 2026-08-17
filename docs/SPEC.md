@@ -29,14 +29,30 @@ robots, 65-photo gallery) does not transfer — borrow the _shape_, not the
 inventory. Newness is framed as an asset: every process and design decision is
 the team's own, nothing inherited.
 
-<!-- PLACEHOLDER: founding year, founders, school vs community, mission line. -->
+Founded **2026** in **Portland, Oregon** by captains and leads from three
+existing FTC teams — Levin (12808), Saket (23511), Nippurn (32154), and Nico. A
+**community** team, not a school team, and a **nonprofit**. The team does charge
+a member fee, so **the site never says or implies that it doesn't** — team
+instruction, 2026-08-16. Funding comes from sponsorship (the largest share) plus
+the team's own fundraisers; say both, and never claim sponsors cover everything.
+The mission paragraph is team-supplied and lives verbatim in `content/team.ts` —
+do not reword it.
+
+**Voice rules (team instruction, 2026-08-16).** Section titles state what the
+section is, plainly — "Who we are", "Our robots", "Sponsorship tiers". No
+constructed or clever headings ("Four founders, and everything they did before
+this" was the example given). The word "honest" is banned sitewide; it reads as
+AI. Captions only where they add something the page doesn't already say.
 
 ### Confirmed results
 
 - **Champions — the largest FTC CAD competition held to date.** Team-confirmed.
-  Data lives in `content/achievements.ts`; the winning render goes at
-  `public/awards/cad-champion-robot.png`. Competition name, date, and field size
-  are still unverified and stay hidden until filled in.
+  The event is **Chain Reaction** (the 2026 Unofficial FTC Discord CAD
+  Competition), **July 2026**; the entry was **Ender**, submitted under the
+  number **788**. Data lives in `content/achievements.ts`; the winning render is
+  at `public/awards/ender-render.webp`. The field was **80+ team submissions**
+  and Horizon ranked **1st** — team-confirmed 2026-08-16, which is what backs
+  the word "largest", so both figures are now published.
 
 **Aesthetic direction:** Polished & modern (team-specified). Precise, confident,
 non-generic — must not look like a default Tailwind tutorial. Strong typographic
@@ -47,22 +63,26 @@ responsive.
   orange `#F86A43`, crimson `#B13848`, deep purple-black `#17061D`, black
   `#000000`. Tokenized in `tailwind.config.ts` (`brand` scale + `night` scale).
 - **Brand assets (official, team-supplied):** in `public/brand/` — gradient and
-  white variants of the sun-over-horizon logo and square mark, plus the arced
-  gradient wordmark. Square gradient mark doubles as the favicon (`app/icon.svg`).
-- **Tagline:** <!-- PLACEHOLDER: awaiting team tagline -->
+  white variants of the sun-over-horizon logo, the square mark, and the arced
+  wordmark. Square gradient mark doubles as the favicon (`app/icon.svg`). Use
+  the gradient wordmark where it is the focal point (the hero) and the white one
+  where it should recede (the footer); two gradient marks in one block read as a
+  second logo moment rather than a sign-off.
+- **Tagline (official, team-supplied):** "Building towards what's next."
+- **Type (see `docs/UI_GUIDE.md` §2):** Jost for display and UI, Newsreader for
+  every narrative paragraph, JetBrains Mono for figures. The serif prose is the
+  deliberate anti-generic choice — it is what stops the pages reading as a
+  product landing page.
 - **Tone:** confident, welcoming, forward-looking (the name "Horizon" suggests
   looking ahead / new frontiers — lean into that visually).
 
 ## 4. Pages (information architecture)
 
-> **CURRENT STATE — coming-soon mode (set 2026-08-14).** The site serves a
-> single holding page (logo, team number, "revamping for the coming BIOBUZZ
-> season"). Every page below is **built and parked, not deleted**: the route
-> folders live at `app/_home`, `app/_team`, `app/_robots`, `app/_sponsors`,
-> `app/_contact` — a leading underscore is how Next.js keeps a folder out of
-> routing. 404s render the holding page too, so old links land gracefully.
-> Restore instructions are at the top of `lib/site.ts`. **Do not treat the
-> parked pages as missing work or re-create them.**
+> **CURRENT STATE — live, rebuilt from scratch 2026-08-16.** Coming-soon mode
+> is gone: `lib/site.ts` no longer has a `comingSoon` flag, the parked
+> `app/_*` folders are deleted, and every page below is a real route. The
+> design system this was rebuilt against is `docs/UI_GUIDE.md`, which is
+> binding — read it before adding any page or component.
 
 Launch set, ordered by value:
 
@@ -71,14 +91,30 @@ Launch set, ordered by value:
    season/robot teaser. The flagship page — highest design bar.
 2. **Team / About** — Horizon's story, mission, members and mentors, subteams
    (build / programming / outreach). Serves judges and prospective members.
-3. **Sponsors** (`/sponsors`) — Why sponsor Horizon, sponsor tiers/logos, and
-   the sponsorship package (designed separately; image slot at
-   `public/sponsors/sponsorship-package.png`). Links to Contact for the ask.
-4. **Contact** (`/contact`) — one clear way to reach the team (email CTA),
-   framed for all three audiences (sponsor / join / community). Split from
-   Sponsors so "join us" doesn't route through a funding pitch.
+3. **Support us** (`/support`) — the pitch: the ask, the budget donut, what
+   sponsorship reaches, the tier table, and the two ways to give. This is the
+   page every "Sponsor Horizon" CTA points at, including the header button.
+4. **Sponsors** (`/sponsors`) — the wall: who actually backs Horizon, grouped
+   into bands, with what each of them gave. Split from the pitch on team
+   instruction 2026-08-16, so a sponsor can be shown off without a reader
+   having to walk through a funding ask to see them. Driven entirely by
+   `currentSponsors` in `content/sponsors.ts`; the page falls back to a designed
+   "no sponsors yet" panel if that array is emptied.
+   - **Bands.** The four paid tiers (Bronze → Diamond), plus **Nonprofit
+     Services** below Bronze for companies giving software free through a
+     nonprofit programme. That band is recognition only — it is deliberately
+     **not** a column in the tier table, because the team has not defined any
+     benefits for it and inventing them is out of bounds.
+   - Logos are inlined as single-colour paths in `components/SponsorLogo.tsx`
+     so one wall can hold a wordmark and an app mark without looking like three
+     websites. Each needs an `optical` multiplier — equal pixel heights do not
+     read as equal weight. Original vectors are archived in `public/sponsors/`.
+5. **Contact** (`/contact`) — one clear way to reach the team, framed for all
+   three audiences (sponsor / join / community). The form POSTs to FormSubmit,
+   which forwards to `site.formInbox`; if that request fails it falls back to a
+   prefilled mail-client handoff so a message is never lost.
 
-5. **Robots** (`/robots`) — the team's robots season by season, technical-binder
+6. **Robots** (`/robots`) — the team's robots season by season, technical-binder
    style (inspired by team4414.com): each robot gets its own page with a main
    photo + design overview, and per-subsystem sub-pages
    (`/robots/<robot>/<subsystem>`). Content lives in `content/robots.ts` —
@@ -99,9 +135,19 @@ Launch set, ordered by value:
 
 ## 6. Open questions (for the team)
 
-- Team story / mission statement.
-- Team colors and any logo/wordmark.
-- Tagline.
-- Member/mentor list and photos.
-- Sponsor list (existing sponsors, tiers).
-- Include a Robot page at launch, or keep deferred?
+Answered 2026-08-16 — mission paragraph (verbatim in `content/team.ts`), tagline
+("Building towards what's next"), colors and wordmark, tiers, budget total,
+impact figures, socials, and the fact that there are no signed sponsors yet.
+
+Still outstanding. Each one is a marked placeholder in the code, and each has a
+designed empty state on the live site rather than a gap:
+
+| What                                | Where it goes                                            | Why it's blocked                                                                    |
+| ----------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Founders group photo                | `public/team/founders.webp` (1600×1200+)                 | Not supplied                                                                        |
+| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (800×1000) | Not supplied                                                                        |
+| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`     | Not supplied                                                                        |
+| The mentor roster                   | `content/team.ts` → `mentors`                            | Three template entries are rendering on the live Team page until real people are in |
+| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`            | Robot still in production                                                           |
+| Ender's design story and subsystems | `content/robots.ts` → `ender`                            | The team's to write                                                                 |
+| A real form endpoint                | `components/ContactForm.tsx` → `FORM_ENDPOINT`           | No account set up; falls back to a prefilled mail-client handoff, which works today |

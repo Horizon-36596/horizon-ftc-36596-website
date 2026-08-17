@@ -5,39 +5,156 @@
 @layer base {
   :root {
     color-scheme: dark;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* Width of the reading column used by <Prose>. */
+    --measure: 68ch;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Keeps layout from shifting when a page grows past one screen. */
+    scrollbar-gutter: stable;
   }
 
   body {
-    @apply bg-night-950 text-slate-200 antialiased;
+    @apply bg-night-950 font-display text-haze-300 antialiased;
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1,
+      'calt' 1;
+  }
+
+  /* Headings are display type; prose paragraphs opt into the serif via <Prose>. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-haze-50;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Any run of figures lines up in a column. */
+  .tabular,
+  th,
+  td {
+    font-variant-numeric: tabular-nums;
   }
 
   ::selection {
-    @apply bg-brand/30 text-white;
+    @apply bg-brand-700/40 text-haze-50;
+  }
+
+  /* One ring, tinted to the brand, everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-300 ring-offset-2 ring-offset-night-950;
+    border-radius: 4px;
+  }
+
+  /* Scroll-reveal starting state, set by <Reveal> and cleared when it fires.
+     Gated behind `.js`, which an inline script in the document head adds — so
+     if scripting is off or the bundle fails, the content is simply visible
+     rather than stranded at opacity 0. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s var(--ease-out-expo),
+      transform 0.7s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Reveals become instant; nothing drifts, nothing rises. */
+    .js [data-reveal],
+    .js [data-reveal='shown'] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 @layer components {
-  /* Shared container width used across sections. */
+  /* Shared measure for page chrome. Sections opt into wider/narrower inside. */
   .container-page {
     @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
   }
 
-  /* Primary call-to-action button. */
+  /* The one primary action per screen. */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-night-950 shadow-lg shadow-brand-900/30 transition hover:bg-brand-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-display text-[0.9375rem] font-medium text-night-950 shadow-ember transition duration-200 ease-out-quart hover:-translate-y-0.5 hover:bg-brand-400 active:translate-y-0;
   }
 
-  /* Secondary / ghost button. */
+  /* Hairline ghost, for the second action. */
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/5;
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-night-700 bg-night-900/60 px-6 py-3 font-display text-[0.9375rem] font-medium text-haze-100 transition duration-200 ease-out-quart hover:-translate-y-0.5 hover:border-brand-500/60 hover:bg-night-850 active:translate-y-0;
   }
 
-  /* Brand sunrise gradient (amber → orange → crimson), for accent text. */
-  .text-sunrise {
-    @apply bg-gradient-to-r from-brand-300 via-brand-500 to-brand-700 bg-clip-text text-transparent;
+  /* Third level: a text link whose arrow nudges.
+     Add `group` alongside this class in the markup when the arrow inside should
+     react to the link's own hover — Tailwind v3 can't @apply `group`. */
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 font-display text-[0.9375rem] font-medium text-brand-300 transition-colors duration-200 hover:text-brand-200;
+  }
+
+  /* Standard surface. Never nested inside another .card. */
+  .card {
+    @apply rounded-xl border border-night-700/70 bg-night-850 shadow-card;
+  }
+
+  /* Small label above a heading. Open tracking, the opposite register to display. */
+  .eyebrow {
+    @apply font-display text-[0.75rem] font-medium uppercase tracking-[0.22em] text-brand-300;
+  }
+
+  /* The signature: a 1px sunrise rule. */
+  .rule-horizon {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-brand-500/70 to-transparent;
+  }
+}
+
+@layer utilities {
+  /* Fine grain, so large flat panels have some tooth. Chrome and hero only. */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Light rising from the horizon line at the bottom of a section. */
+  .glow-horizon {
+    background-image: radial-gradient(
+      70% 60% at 50% 100%,
+      rgb(248 106 67 / 0.14),
+      transparent 72%
+    );
   }
 }

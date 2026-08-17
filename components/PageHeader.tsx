@@ -1,23 +1,50 @@
+import { Reveal } from '@/components/Reveal';
+
+// The top of every page that isn't the home page. Same shape as the hero —
+// eyebrow, display line, one serif lead, light rising from the bottom edge —
+// at about half the scale, so an inner page is recognisably the same site
+// without competing with the landing page.
 export function PageHeader({
   eyebrow,
   title,
-  intro,
+  lead,
+  children,
 }: {
   eyebrow: string;
-  title: string;
-  intro?: string;
+  title: React.ReactNode;
+  lead?: React.ReactNode;
+  /** Optional actions or metadata under the lead. */
+  children?: React.ReactNode;
 }) {
   return (
-    <header className="container-page border-b border-white/5 py-16">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
-        {eyebrow}
-      </p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-        {title}
-      </h1>
-      {intro ? (
-        <p className="mt-4 max-w-2xl text-lg text-slate-300">{intro}</p>
-      ) : null}
+    <header className="grain relative isolate overflow-hidden border-b border-night-700/50">
+      <div
+        aria-hidden
+        className="glow-horizon pointer-events-none absolute inset-x-0 bottom-0 h-72"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"
+      />
+
+      <div className="container-page relative py-20 sm:py-28">
+        <Reveal>
+          <p className="eyebrow">{eyebrow}</p>
+          <h1 className="mt-5 max-w-4xl text-display-sm font-light text-haze-50">
+            {title}
+          </h1>
+        </Reveal>
+
+        {lead ? (
+          <Reveal delay={90}>
+            <div className="mt-7 max-w-[var(--measure)] font-prose text-[1.125rem] leading-[1.65] text-haze-300 sm:text-[1.25rem]">
+              {lead}
+            </div>
+          </Reveal>
+        ) : null}
+
+        {children ? <Reveal delay={160}>{children}</Reveal> : null}
+      </div>
     </header>
   );
 }

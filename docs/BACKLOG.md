@@ -5,15 +5,34 @@ for how items move through states.
 
 ## Next up
 
+0. **Activate the contact form** — FormSubmit sends a one-time confirmation
+   link to `horizon36596@gmail.com` on the very first submission. Send one test
+   message from `/contact/` and click that link, or every message after it is
+   held rather than delivered. **Blocks the form working at all.**
+   (human-only — needs inbox access)
+
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Build the Team / About page** — real story, subteams, and member/mentor
-   structure per `docs/SPEC.md` §4.2. Keep unconfirmed facts as marked
-   placeholders. (auto-merge)
-2. **Build the Sponsors + Contact page** — "why sponsor Horizon", tiers, sponsor
-   showcase, and a working contact path per `docs/SPEC.md` §4.3. Real sponsor
-   names/logos are approval-required when first added. (auto-merge; sponsor facts
-   approval-required)
+1. **Fill in the mentor roster** — `content/team.ts` → `mentors` currently holds
+   three template entries ("Mentor name" / "Their real-world title") that render
+   on the public Team page. Each needs a real name, their actual job title, a
+   3–10 word line on what they mentor Horizon on, and a photo at
+   `public/team/mentors/<name>.webp` (800 × 1000). **Blocks launch.**
+   (auto-merge)
+2. **Drop in the team photography** — founders group shot and four portraits, at
+   the paths and sizes listed in `docs/SPEC.md` §6. Every slot already has a
+   designed placeholder naming its own path, so this is a file drop plus one
+   line per member in `content/team.ts`. (auto-merge)
+3. **Write Ender's design story** — the Chain Reaction entry currently states
+   only confirmed facts. Add the team's own account of the design decisions to
+   `content/robots.ts` → `ender.description`. (auto-merge)
+4. **Confirm rights and credit for the FIRST Championship photos** — the two
+   event photos in `public/ftc/` came from the team. If they are official FIRST
+   press images, check whether a credit line is required and add one under
+   `aboutFtc.photoCaption`. (auto-merge)
+5. **Clear the under-construction banner** — set `announcement` to `null` in
+   `lib/site.ts` once items 1–4 are done. One line, and the bar and its spacing
+   both go. (auto-merge)
 
 ## In progress
 
@@ -25,16 +44,42 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
-- **Build the Home / landing page** — flagship hero, "what we do" pillars,
-  quick-facts strip, and closing CTA. Merged to `main` (local cycle, `pnpm verify`
-  green). Placeholder facts marked for the team.
+- **First sponsors, page split, and a working form** (2026-08-16) — Tektite
+  signed at Bronze (Charge 3B chargers); GitHub and Canva recognised in a new
+  Nonprofit Services band. The pitch moved to `/support` and `/sponsors` became
+  the wall. Logos are inlined single-colour paths with per-logo optical
+  scaling. Contact form now POSTs to FormSubmit with a mail-client fallback.
+  Under-construction banner added above the header.
+- **Voice and content pass** (2026-08-16) — team instructions applied sitewide:
+  no mention of team fees anywhere, funding described as sponsorship plus the
+  team's own fundraisers, the word "honest" removed, and every constructed
+  section title replaced with one that names the section. Member cards now carry
+  role and years in FIRST instead of individual honours; roles corrected. Join
+  us condensed to two lines, "Why a new team" cut, a mentors section added, the
+  budget donut rebuilt to match the team's own chart (`showAmounts: true`), and
+  two FIRST Championship photos added to the FTC section as an angled stack.
+- **Chain Reaction figures published** (2026-08-16) — team confirmed 80+
+  submissions and a 1st-place finish, so the claim "largest FTC CAD competition
+  held to date" is now backed by figures shown on the Home and Ender pages.
+- **White wordmark added** (2026-08-16) — `public/brand/horizon-wordmark-white.svg`,
+  now used in the footer. Completes the brand set.
+- **Full site rebuild from scratch** (2026-08-16). Coming-soon mode removed;
+  Home, Team, Robots (+ robot and subsystem pages), Sponsors, and Contact all
+  built against a new design system captured in `docs/UI_GUIDE.md`. Content
+  written from the team's sponsorship package and the supplied mission
+  paragraph. `pnpm verify` green; contrast, tap targets, mobile overflow, form
+  validation, and the mobile menu all checked.
+- **Build the Home / landing page** — superseded by the rebuild above.
 
 ## Icebox
 
 <!-- Ideas not yet ready to queue. -->
 
-- **Robot page** — current season's robot, design highlights, past robots.
-  Deferred at launch (`docs/SPEC.md` §4 Icebox); promote when robot content
-  exists.
-- **Blog / season updates**, **Outreach**, **Engineering portfolio** — later
-  candidates once core pages ship.
+- **Blog / season updates** — worth doing once BIOBUZZ starts and there is a
+  build to narrate. Sponsors at the Diamond tier are promised a dedicated post,
+  so this becomes load-bearing the moment one signs.
+- **Outreach page** — the impact material currently lives inside the Sponsors
+  page. It earns its own page when there is more of it than four paragraphs.
+- **Engineering portfolio** — for judges, once there is a season's work behind it.
+- **Sponsor showcase** — the grid is already written in `app/sponsors/page.tsx`
+  and renders automatically as soon as `currentSponsors` is non-empty.

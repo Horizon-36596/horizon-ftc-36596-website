@@ -16,17 +16,23 @@ export const cadChampionship = {
    */
   headline: 'The largest FTC CAD competition held to date',
 
-  /** Official event name. Leave undefined until confirmed — the page omits it. */
-  // <!-- PLACEHOLDER: official competition name -->
-  competitionName: undefined as string | undefined,
+  /** Confirmed by the team and by the event's public announcement. */
+  competitionName: 'Chain Reaction',
+  /** The organizer's full name for it. */
+  competitionLongName: 'The 2026 Unofficial FTC Discord CAD Competition',
 
-  /** e.g. '2026' or 'Summer 2026'. Omitted while undefined. */
-  // <!-- PLACEHOLDER: when it was held -->
-  date: undefined as string | undefined,
+  /** Announced run dates, July 18–25 2026. */
+  date: 'July 2026',
 
-  /** e.g. '120 teams'. This is what backs the word "largest" — confirm before filling. */
-  // <!-- PLACEHOLDER: field size / number of entrants -->
-  fieldSize: undefined as string | undefined,
+  /**
+   * The entrant count is what backs the word "largest". Team-confirmed
+   * 2026-08-16: 80+ submissions, Horizon ranked 1st.
+   */
+  fieldSize: '80+ team submissions',
+  /** Just the count, for the figure slot in a stat pair. Its unit is the label. */
+  fieldCount: '80+',
+  /** Where Horizon finished in that field. */
+  rank: '1st',
 
   /** Link to the results announcement or event page. Omitted while undefined. */
   // <!-- PLACEHOLDER: results / event URL -->
@@ -61,9 +67,14 @@ export const cadChampionship = {
   imageHeight: 817,
 
   /**
-   * Paragraphs describing the entry. Add the design story here — one string
-   * per paragraph.
+   * The entry, described using only confirmed facts. The design story — why the
+   * team made the choices it made — is the team's to write.
    */
-  // <!-- PLACEHOLDER: the team's own account of the design + the win -->
-  description: [] as string[],
+  description: [
+    'Chain Reaction is a CAD-only competition: there is no field, no driver, and no build season to hide behind. Entrants get a brief and a deadline, and what they submit is a complete robot modeled in software, judged on the design itself.',
+    'It drew more than 80 submissions, the largest field an FTC CAD competition has had. Horizon entered as 788 and ranked first, in the same summer the team was founded. Ender is the model that did it — which is why the render below carries 788 on the side panel rather than 36596.',
+    // <!-- PLACEHOLDER: the team's own account of the design decisions in Ender —
+    //      drivetrain concept, intake geometry, why the arm is laid out this
+    //      way. One string per paragraph. -->
+  ],
 };
