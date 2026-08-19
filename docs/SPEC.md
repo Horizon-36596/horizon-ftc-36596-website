@@ -90,9 +90,22 @@ responsive.
 
 Launch set, ordered by value:
 
-1. **Home / landing** — Hero with team name, tagline, and a one-line pitch;
-   primary CTAs ("Become a sponsor", "Join us"); quick glance at who Horizon is;
-   season/robot teaser. The flagship page — highest design bar.
+1. **Home / landing** — the flagship page, highest design bar. Order, top to
+   bottom: hero → who already backs us → who we are → the Chain Reaction win →
+   the Instagram rail → the founders → what FTC is → one sponsorship section.
+   - **Instagram rail** (`components/InstagramRail.tsx`) sits directly after the
+     Ender story: the win is from July, and the rail is the evidence the team is
+     active now. Native scroll-snap rather than a JS carousel, and tiles carry
+     the same `rounded-lg` + solid hairline border + lifted shadow as the FTC
+     photo pair, on team instruction 2026-08-19. Driven by `FEED_ENDPOINT` in
+     `content/instagram.ts` — see that file for why a URL is unavoidable.
+   - **One sponsorship section, not two.** The ask and what it reaches used to
+     be separate sections and read out of order, with the pitch landing after
+     the proof. Merged 2026-08-19 on team instruction: heading and ask, then the
+     impact grid, then a single CTA row. Do not split it again.
+   - **No founders photo.** Removed from Home and Team 2026-08-19 — the team
+     will not have a group shot for a while, and the mission text takes the full
+     prose measure instead of sitting beside an empty slot.
 2. **Team / About** — the mission verbatim, the founding members, recruiting,
    and the mentors. Serves judges and prospective members.
    - **People are rows, not portrait cards.** Every person on the site renders
@@ -164,7 +177,6 @@ designed empty state on the live site rather than a gap:
 
 | What                                | Where it goes                                                   | Why it's blocked          |
 | ----------------------------------- | --------------------------------------------------------------- | ------------------------- |
-| Founders group photo                | `public/team/founders.webp` (16/9, 1600×900+)                   | Not supplied              |
 | Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied              |
 | Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`            | Not supplied              |
 | BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production |

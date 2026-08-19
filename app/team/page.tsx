@@ -4,7 +4,6 @@ import { PageHeader } from '@/components/PageHeader';
 import { Section, SectionHeading } from '@/components/Section';
 import { Prose } from '@/components/Prose';
 import { Reveal } from '@/components/Reveal';
-import { Frame } from '@/components/Frame';
 import { Avatar } from '@/components/Avatar';
 import { ArrowRight, ArrowUpRight } from '@/components/Icon';
 import { foundingMembers, mentors, mission, recruiting } from '@/content/team';
@@ -31,22 +30,11 @@ export default function TeamPage() {
         lead={<p>{mission}</p>}
       />
 
-      {/* The founders, with the group photo above them. */}
+      {/* The founders. No group shot above them — there is not going to be one
+          for a while, and a 16/9 empty slot at the top of the page was the
+          first thing a visitor saw. */}
       <Section tone="sunk">
-        <Reveal>
-          <Frame
-            alt="Horizon's founding members: Levin, Saket, Nippurn, and Nico"
-            aspect="aspect-[16/9]"
-            slot="public/team/founders.webp"
-            hint="1600 × 900 or larger"
-          />
-        </Reveal>
-
-        <SectionHeading
-          className="mt-16"
-          eyebrow="Founding members"
-          title="Who is on the team"
-        />
+        <SectionHeading eyebrow="Founding members" title="Who is on the team" />
 
         <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-night-700/70 bg-night-700/70 sm:grid-cols-2">
           {foundingMembers.map((member, i) => (

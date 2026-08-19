@@ -45,7 +45,7 @@ export const foundingMembers: Member[] = [
     name: 'Nippurn',
     role: 'Design / Build / Business',
     formerTeam: 'FTC 32154',
-    // <!-- PLACEHOLDER: Nippurn's years in FIRST. Add e.g. 'Fourth year in FIRST'. -->
+    experience: 'Fifth year in FIRST',
     // photo: '/team/nippurn.webp',
   },
   {

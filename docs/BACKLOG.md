@@ -7,20 +7,27 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Drop in the team photography** — founders group shot (16/9, 1600 × 900+)
-   and four member portraits. Portraits are now **square** crops at
-   `public/team/<name>.webp`, 320 × 320, rendered as small circles — the old
-   800 × 1000 portrait slots are gone. File drop plus one line per member in
-   `content/team.ts`. (auto-merge)
-2. **Write Ender's design story** — the Chain Reaction entry currently states
+1. **Wire the Instagram feed** — `content/instagram.ts` → `FEED_ENDPOINT` is
+   empty, so the home page shows a follow-us card instead of the post rail.
+   Instagram has no unauthenticated public feed, so this needs one JSON URL from
+   either a widget service (behold.so has a free tier) or our own Graph API
+   token. Paste it in and the rail goes live and stays live — it fetches in the
+   browser on every visit, so new posts appear with no rebuild. Full reasoning
+   and the accepted JSON shapes are documented in that file. (auto-merge)
+2. **Drop in the member portraits** — four square crops at
+   `public/team/<name>.webp`, 320 × 320, rendered as small circles. File drop
+   plus one line per member in `content/team.ts`. The founders _group_ photo
+   slot is gone from both Home and Team, on team instruction — add it back only
+   when a group shot actually exists. (auto-merge)
+3. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
-3. **Confirm rights and credit for the FIRST Championship photos** — the two
+4. **Confirm rights and credit for the FIRST Championship photos** — the two
    event photos in `public/ftc/` came from the team. If they are official FIRST
    press images, check whether a credit line is required and add one under
    `aboutFtc.photoCaption`. (auto-merge)
-4. **Clear the under-construction banner** — set `announcement` to `null` in
-   `lib/site.ts` once items 1–3 are done. One line, and the bar and its spacing
+5. **Clear the under-construction banner** — set `announcement` to `null` in
+   `lib/site.ts` once items 1–4 are done. One line, and the bar and its spacing
    both go. (auto-merge)
 
 ## In progress
@@ -33,6 +40,11 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Home page restructure + Instagram rail** (2026-08-19) — a live post carousel
+  below the Ender story, styled to match the FTC photo pair; the two sponsorship
+  sections at the foot of the page merged into one that runs pitch → proof →
+  action; the founders photo slot removed from Home and Team so the text takes
+  the full measure; Nippurn's fifth year in FIRST recorded.
 - **Mentor roster complete** (2026-08-17) — Declan Simcich, Bilal Chaudhary,
   Joshua Wang, and Nishant Vikramaditya, all four with photos. Listed as equals:
   Nishant's World Championship sits in the same weight as everyone else's team

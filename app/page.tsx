@@ -6,6 +6,7 @@ import { Reveal } from '@/components/Reveal';
 import { Frame } from '@/components/Frame';
 import { PhotoStack } from '@/components/PhotoStack';
 import { SponsorStrip } from '@/components/SponsorWall';
+import { InstagramRail } from '@/components/InstagramRail';
 import { ArrowRight, ArrowUpRight, Trophy } from '@/components/Icon';
 import { cadChampionship as cad } from '@/content/achievements';
 import { aboutFtc, foundingMembers, mission } from '@/content/team';
@@ -29,37 +30,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Who we are. The mission paragraph is the team's own words, verbatim. */}
+      {/* Who we are. The mission paragraph is the team's own words, verbatim.
+          No photo alongside it — there is no founders shot yet and there will
+          not be for a while, so the text gets the full measure rather than
+          sitting next to an empty slot. */}
       <Section tone="sunk">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-20">
-          <div>
-            <SectionHeading eyebrow="About us" title="Who we are" />
-            <Reveal delay={80}>
-              <Prose className="mt-8" lead>
-                <p>{mission}</p>
-              </Prose>
-              <Link href="/team/" className="btn-link group mt-8">
-                Read the full story
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-200 ease-out-quart group-hover:translate-x-0.5"
-                />
-              </Link>
-            </Reveal>
-          </div>
-
-          <Reveal delay={140} className="lg:pt-10">
-            <Frame
-              alt="Horizon's founding members: Levin, Saket, Nippurn, and Nico"
-              aspect="aspect-[4/3]"
-              slot="public/team/founders.webp"
-              hint="1600 × 1200 or larger"
+        <SectionHeading eyebrow="About us" title="Who we are" />
+        <Reveal delay={80}>
+          <Prose className="mt-8" lead>
+            <p>{mission}</p>
+          </Prose>
+          <Link href="/team/" className="btn-link group mt-8">
+            Read the full story
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-200 ease-out-quart group-hover:translate-x-0.5"
             />
-            <p className="mt-4 font-prose text-[0.9375rem] italic leading-relaxed text-haze-400">
-              Our founding members: Levin, Saket, Nippurn, and Nico.
-            </p>
-          </Reveal>
-        </div>
+          </Link>
+        </Reveal>
       </Section>
 
       {/* The win. The only real photography the team has, so it gets the space. */}
@@ -136,6 +124,15 @@ export default function HomePage() {
             </p>
           </Reveal>
         </div>
+      </Section>
+
+      {/* Straight off the Ender story: proof the team is active right now
+          rather than only in July. Live feed, so it stays current on its own. */}
+      <Section tone="sunk">
+        <SectionHeading eyebrow="Latest" title="What we have been posting" />
+        <Reveal delay={80} className="mt-12">
+          <InstagramRail />
+        </Reveal>
       </Section>
 
       {/* What the founders bring. Credibility, in the sponsors' terms. */}
@@ -234,16 +231,20 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* What sponsorship reaches. Text-led, no icon-card grid. */}
-      <Section tone="sunk">
+      {/* Sponsorship, in one section. The ask and what it reaches were two
+          sections and read out of order — the pitch landed after the proof. Now
+          the reasoning runs top to bottom and there is one CTA at the end. */}
+      <Section tone="sunk" glow className="border-t border-night-700/50">
         <SectionHeading
-          eyebrow="Reach"
-          title="What your support reaches"
+          eyebrow="Support the team"
+          title="Why sponsor Horizon"
           intro={
             <p>
-              Sponsoring Horizon funds a team and a robot. It also funds
-              everything those students give away — and this is a team of people
-              who have been giving their work away for years.
+              We run our own fundraisers, but sponsorship covers the largest
+              share of what a season costs — the parts, the registrations, and
+              getting a robot to competitions. It also funds everything these
+              students give away, and this is a team of people who have been
+              giving their work away for years.
             </p>
           }
         />
@@ -264,32 +265,22 @@ export default function HomePage() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* Closing. One primary action. */}
-      <Section glow className="border-t border-night-700/50">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Support the team</p>
-          <h2 className="mt-5 text-display-sm font-light text-haze-50">
-            Why sponsor Horizon
-          </h2>
-          <Prose className="mx-auto mt-6 text-center">
-            <p>
-              We run our own fundraisers, but sponsorship covers the largest
-              share of what a season costs — the parts, the registrations, and
-              getting a robot to competitions. If your company or organization
-              wants to put its name on a team that is going to be worth
-              watching, we would like to talk.
+        <Reveal delay={120}>
+          <div className="mt-14 flex flex-col items-start gap-6 border-t border-night-700/70 pt-12 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-xl font-prose text-[1.0625rem] leading-relaxed text-haze-300">
+              If your company or organization wants to put its name on a team
+              that is going to be worth watching, we would like to talk.
             </p>
-          </Prose>
-          <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
-            <Link href="/support/" className="btn-primary">
-              Sponsor Horizon
-              <ArrowRight size={17} />
-            </Link>
-            <Link href="/contact/" className="btn-ghost">
-              Get in touch
-            </Link>
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Link href="/support/" className="btn-primary">
+                Sponsor Horizon
+                <ArrowRight size={17} />
+              </Link>
+              <Link href="/contact/" className="btn-ghost">
+                Get in touch
+              </Link>
+            </div>
           </div>
           <p className="mt-8 font-mono text-[0.8125rem] text-haze-500">
             {site.businessEmail}
