@@ -93,8 +93,17 @@ Launch set, ordered by value:
 1. **Home / landing** — Hero with team name, tagline, and a one-line pitch;
    primary CTAs ("Become a sponsor", "Join us"); quick glance at who Horizon is;
    season/robot teaser. The flagship page — highest design bar.
-2. **Team / About** — Horizon's story, mission, members and mentors, subteams
-   (build / programming / outreach). Serves judges and prospective members.
+2. **Team / About** — the mission verbatim, the founding members, recruiting,
+   and the mentors. Serves judges and prospective members.
+   - **People are rows, not portrait cards.** Every person on the site renders
+     as a small circular portrait (72px, via `components/Avatar.tsx`) beside
+     their text. Team instruction 2026-08-17: the photos available are low
+     resolution, and a circle at that size hides what a full-bleed portrait
+     advertises. Portraits are therefore **square** crops — 320 x 320 is
+     plenty — not 4/5 verticals. No `photo` set renders the person's initial on
+     the night ground, which keeps a row's rhythm intact next to a neighbour who
+     has one. The founders _group_ photo stays a wide 16/9 `Frame`; this rule is
+     about individual portraits.
 3. **Support us** (`/support`) — the pitch: the ask, the budget donut, what
    sponsorship reaches, the tier table, and the two ways to give. This is the
    page every "Sponsor Horizon" CTA points at, including the header button.
@@ -149,12 +158,12 @@ impact figures, socials, and the fact that there are no signed sponsors yet.
 Still outstanding. Each one is a marked placeholder in the code, and each has a
 designed empty state on the live site rather than a gap:
 
-| What                                | Where it goes                                            | Why it's blocked                                                                    |
-| ----------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Founders group photo                | `public/team/founders.webp` (1600×1200+)                 | Not supplied                                                                        |
-| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (800×1000) | Not supplied                                                                        |
-| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`     | Not supplied                                                                        |
-| The mentor roster                   | `content/team.ts` → `mentors`                            | Three template entries are rendering on the live Team page until real people are in |
-| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`            | Robot still in production                                                           |
-| Ender's design story and subsystems | `content/robots.ts` → `ender`                            | The team's to write                                                                 |
-| A real form endpoint                | `components/ContactForm.tsx` → `FORM_ENDPOINT`           | No account set up; falls back to a prefilled mail-client handoff, which works today |
+| What                                | Where it goes                                                   | Why it's blocked                                                                    |
+| ----------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Founders group photo                | `public/team/founders.webp` (16/9, 1600×900+)                   | Not supplied                                                                        |
+| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied                                                                        |
+| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`            | Not supplied                                                                        |
+| Bilal Chaudhary's photo             | `public/team/mentors/bilal.webp` (square, 320×320)              | Not supplied; his card shows his initial                                            |
+| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production                                                           |
+| Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write                                                                 |
+| A real form endpoint                | `components/ContactForm.tsx` → `FORM_ENDPOINT`                  | No account set up; falls back to a prefilled mail-client handoff, which works today |

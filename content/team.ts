@@ -2,9 +2,9 @@
 // TEAM — mission, the people, and the mentors.
 //
 // Every fact here comes from the team. Nothing is invented. Where the team has
-// not supplied something yet (a member's years in FIRST, the mentor roster) the
-// field is left empty or clearly marked, and the page shows a designed
-// placeholder rather than a plausible-sounding guess.
+// not supplied something yet (a member's years in FIRST, a portrait) the field
+// is left empty, and the page shows a designed placeholder rather than a
+// plausible-sounding guess.
 // ---------------------------------------------------------------------------
 
 /** The mission paragraph, supplied verbatim by the team. Do not reword. */
@@ -20,8 +20,8 @@ export type Member = {
   /** Experience, stated as a year count — e.g. 'Sixth year in FIRST'. */
   experience?: string;
   /**
-   * Portrait under /public/team/. Leave undefined and the card shows a branded
-   * placeholder sized 800×1000 rather than a broken image.
+   * Square portrait under /public/team/, rendered as a small circle. 320 x 320
+   * is plenty. Leave it off and the card shows the member's initial.
    */
   photo?: string;
 };
@@ -68,37 +68,48 @@ export const recruiting = {
 // ---------------------------------------------------------------------------
 // MENTORS
 //
-// <!-- PLACEHOLDER: the mentor roster is not filled in yet. Each entry needs a
-//      photo at /public/team/mentors/<name>.webp, a real name, their real-world
-//      job title, and a short line (3–10 words) on what they mentor Horizon on.
-//      The three entries below are a visible template so the shape is obvious —
-//      replace them with real people before this site goes public. -->
+// Adults and alumni who work with the team. Supplied by the team one at a time,
+// 2026-08-17 onward.
+//
+// Photos go in /public/team/mentors/ as square crops, 320 x 320 is plenty — the
+// site renders them as small circles on purpose, because the photos available
+// are low resolution and a circle at 80px hides what a full-bleed portrait
+// would advertise. Leave `photo` off and the card shows the person's initial
+// rather than a hole.
 // ---------------------------------------------------------------------------
 export type Mentor = {
   name: string;
-  /** Their actual job title and employer or school. */
+  /** Where they work or study now, as the team stated it. */
   title: string;
-  /** 3–10 words on what they mentor the team on. */
+  /** Employer or school link, if there is one. */
+  href?: string;
+  /** Their own FIRST history. */
+  background?: string;
+  /** A short line on what they mentor the team on. */
   mentorsOn: string;
-  /** Photo under /public/team/mentors/. */
+  /** Square photo under /public/team/mentors/. */
   photo?: string;
 };
 
 export const mentors: Mentor[] = [
   {
-    name: 'Mentor name',
-    title: 'Their real-world title',
-    mentorsOn: 'What they mentor us on',
+    name: 'Declan Simcich',
+    title: 'Employee at Offset Robotics',
+    href: 'https://offsetrobotics.com',
+    background: 'FTC 26000 alumni',
+    mentorsOn: 'Game strategy and robot hardware',
+    photo: '/team/mentors/declan.webp',
   },
   {
-    name: 'Mentor name',
-    title: 'Their real-world title',
-    mentorsOn: 'What they mentor us on',
-  },
-  {
-    name: 'Mentor name',
-    title: 'Their real-world title',
-    mentorsOn: 'What they mentor us on',
+    name: 'Bilal Chaudhary',
+    title: 'Employee at Offset Robotics',
+    href: 'https://offsetrobotics.com',
+    background: 'FTC 26000 alumni',
+    mentorsOn: 'Robot hardware',
+    // <!-- PLACEHOLDER: Bilal's photo. Drop a square crop at
+    //      public/team/mentors/bilal.webp and uncomment. Until then the card
+    //      shows his initial. -->
+    // photo: '/team/mentors/bilal.webp',
   },
 ];
 

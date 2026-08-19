@@ -7,16 +7,16 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Fill in the mentor roster** — `content/team.ts` → `mentors` currently holds
-   three template entries ("Mentor name" / "Their real-world title") that render
-   on the public Team page. Each needs a real name, their actual job title, a
-   3–10 word line on what they mentor Horizon on, and a photo at
-   `public/team/mentors/<name>.webp` (800 × 1000). **Blocks launch.**
-   (auto-merge)
-2. **Drop in the team photography** — founders group shot and four portraits, at
-   the paths and sizes listed in `docs/SPEC.md` §6. Every slot already has a
-   designed placeholder naming its own path, so this is a file drop plus one
-   line per member in `content/team.ts`. (auto-merge)
+1. **Finish the mentor roster** — Declan Simcich and Bilal Chaudhary are in.
+   Bilal still needs his photo at `public/team/mentors/bilal.webp` (square, 320
+   × 320 is enough), then uncomment his `photo` line in `content/team.ts`; his
+   card shows his initial until then. Add further mentors as the team sends
+   them. (auto-merge)
+2. **Drop in the team photography** — founders group shot (16/9, 1600 × 900+)
+   and four member portraits. Portraits are now **square** crops at
+   `public/team/<name>.webp`, 320 × 320, rendered as small circles — the old
+   800 × 1000 portrait slots are gone. File drop plus one line per member in
+   `content/team.ts`. (auto-merge)
 3. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
