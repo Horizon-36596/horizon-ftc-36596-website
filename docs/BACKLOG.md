@@ -7,11 +7,12 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Finish the mentor roster** — Declan Simcich and Bilal Chaudhary are in.
-   Bilal still needs his photo at `public/team/mentors/bilal.webp` (square, 320
-   × 320 is enough), then uncomment his `photo` line in `content/team.ts`; his
-   card shows his initial until then. Add further mentors as the team sends
-   them. (auto-merge)
+1. **Finish the mentor roster** — four mentors in: Declan Simcich, Bilal
+   Chaudhary, Joshua Wang, Nishant Vikramaditya. Only **Bilal's photo** is
+   missing: drop a square crop at `public/team/mentors/bilal.webp` (320 × 320 is
+   enough), then uncomment his `photo` line in `content/team.ts`. His card shows
+   his initial until then. Add further mentors as the team sends them.
+   (auto-merge)
 2. **Drop in the team photography** — founders group shot (16/9, 1600 × 900+)
    and four member portraits. Portraits are now **square** crops at
    `public/team/<name>.webp`, 320 × 320, rendered as small circles — the old

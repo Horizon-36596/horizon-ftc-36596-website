@@ -85,6 +85,11 @@ export type Mentor = {
   href?: string;
   /** Their own FIRST history. */
   background?: string;
+  /**
+   * A single verified honour worth its own line — the sort of thing a judge or
+   * a sponsor reads the roster for. Rendered as a pill, so keep it to one.
+   */
+  honour?: string;
   /** A short line on what they mentor the team on. */
   mentorsOn: string;
   /** Square photo under /public/team/mentors/. */
@@ -110,6 +115,22 @@ export const mentors: Mentor[] = [
     //      public/team/mentors/bilal.webp and uncomment. Until then the card
     //      shows his initial. -->
     // photo: '/team/mentors/bilal.webp',
+  },
+  {
+    name: 'Joshua Wang',
+    title: 'Student at MIT',
+    background: 'FTC 16460 alumni',
+    mentorsOn: 'Robot hardware',
+    photo: '/team/mentors/joshua.webp',
+  },
+  {
+    name: 'Nishant Vikramaditya',
+    title: 'Founder of Tektite',
+    href: 'https://tektitebiz.com/',
+    background: 'FTC 21229 alumni',
+    honour: 'FIRST Tech Challenge World Champion',
+    mentorsOn: 'Programming: simulation and replay, command base, and more',
+    photo: '/team/mentors/nishant.webp',
   },
 ];
 

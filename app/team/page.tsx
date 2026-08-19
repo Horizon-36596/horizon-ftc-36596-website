@@ -137,6 +137,12 @@ export default function TeamPage() {
                     </p>
                   ) : null}
 
+                  {mentor.honour ? (
+                    <p className="mt-3 inline-block rounded-full border border-brand-500/40 bg-brand-500/10 px-3 py-1 text-[0.8125rem] leading-snug text-brand-300">
+                      {mentor.honour}
+                    </p>
+                  ) : null}
+
                   <p className="mt-3 font-prose text-[0.9375rem] leading-snug text-haze-300">
                     {mentor.mentorsOn}
                   </p>
