@@ -86,8 +86,10 @@ export type Mentor = {
   /** Their own FIRST history. */
   background?: string;
   /**
-   * A single verified honour worth its own line — the sort of thing a judge or
-   * a sponsor reads the roster for. Rendered as a pill, so keep it to one.
+   * One verified honour, if they have one. Rendered as a plain second line in
+   * the same weight as `background` — team instruction 2026-08-17: every mentor
+   * is listed as an equal, and giving one of them a highlighted badge reads as
+   * a star among staff rather than as a fact about them.
    */
   honour?: string;
   /** A short line on what they mentor the team on. */
@@ -111,10 +113,7 @@ export const mentors: Mentor[] = [
     href: 'https://offsetrobotics.com',
     background: 'FTC 26000 alumni',
     mentorsOn: 'Robot hardware',
-    // <!-- PLACEHOLDER: Bilal's photo. Drop a square crop at
-    //      public/team/mentors/bilal.webp and uncomment. Until then the card
-    //      shows his initial. -->
-    // photo: '/team/mentors/bilal.webp',
+    photo: '/team/mentors/bilal.webp',
   },
   {
     name: 'Joshua Wang',

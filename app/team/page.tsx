@@ -131,15 +131,15 @@ export default function TeamPage() {
                     </p>
                   )}
 
-                  {mentor.background ? (
-                    <p className="mt-2 font-mono text-[0.8125rem] text-haze-500">
+                  {/* Background and honour share one block in one weight.
+                      Every mentor is listed as an equal — a highlighted badge
+                      on one of them reads as a ranking. */}
+                  {mentor.background || mentor.honour ? (
+                    <p className="mt-2 font-mono text-[0.8125rem] leading-relaxed text-haze-500">
                       {mentor.background}
-                    </p>
-                  ) : null}
-
-                  {mentor.honour ? (
-                    <p className="mt-3 inline-block rounded-full border border-brand-500/40 bg-brand-500/10 px-3 py-1 text-[0.8125rem] leading-snug text-brand-300">
-                      {mentor.honour}
+                      {mentor.honour ? (
+                        <span className="block">{mentor.honour}</span>
+                      ) : null}
                     </p>
                   ) : null}
 

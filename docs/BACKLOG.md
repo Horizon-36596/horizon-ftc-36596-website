@@ -7,26 +7,20 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Finish the mentor roster** — four mentors in: Declan Simcich, Bilal
-   Chaudhary, Joshua Wang, Nishant Vikramaditya. Only **Bilal's photo** is
-   missing: drop a square crop at `public/team/mentors/bilal.webp` (320 × 320 is
-   enough), then uncomment his `photo` line in `content/team.ts`. His card shows
-   his initial until then. Add further mentors as the team sends them.
-   (auto-merge)
-2. **Drop in the team photography** — founders group shot (16/9, 1600 × 900+)
+1. **Drop in the team photography** — founders group shot (16/9, 1600 × 900+)
    and four member portraits. Portraits are now **square** crops at
    `public/team/<name>.webp`, 320 × 320, rendered as small circles — the old
    800 × 1000 portrait slots are gone. File drop plus one line per member in
    `content/team.ts`. (auto-merge)
-3. **Write Ender's design story** — the Chain Reaction entry currently states
+2. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
-4. **Confirm rights and credit for the FIRST Championship photos** — the two
+3. **Confirm rights and credit for the FIRST Championship photos** — the two
    event photos in `public/ftc/` came from the team. If they are official FIRST
    press images, check whether a credit line is required and add one under
    `aboutFtc.photoCaption`. (auto-merge)
-5. **Clear the under-construction banner** — set `announcement` to `null` in
-   `lib/site.ts` once items 1–4 are done. One line, and the bar and its spacing
+4. **Clear the under-construction banner** — set `announcement` to `null` in
+   `lib/site.ts` once items 1–3 are done. One line, and the bar and its spacing
    both go. (auto-merge)
 
 ## In progress
@@ -39,6 +33,10 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Mentor roster complete** (2026-08-17) — Declan Simcich, Bilal Chaudhary,
+  Joshua Wang, and Nishant Vikramaditya, all four with photos. Listed as equals:
+  Nishant's World Championship sits in the same weight as everyone else's team
+  number, not in a highlighted badge, on team instruction.
 - **Contact form live** (2026-08-17) — activated and confirmed by the team. Now
   posts to FormSubmit's alias rather than the naked address, so the team's gmail
   is no longer in the shipped build. Contact copy cut back to short lines.
