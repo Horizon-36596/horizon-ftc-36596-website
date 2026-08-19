@@ -60,6 +60,18 @@ export type InstagramPost = {
  */
 export const fallbackPosts: InstagramPost[] = [];
 
+/**
+ * Whether the home page renders the Instagram section at all.
+ *
+ * With no feed and no fallback posts there is nothing to show, and a section
+ * heading sitting above a card that only says "we are on Instagram" is worse
+ * than no section: it takes the space of real content and delivers a link the
+ * footer already carries. So the whole section is omitted until there is
+ * something in it. Set FEED_ENDPOINT and it returns.
+ */
+export const hasInstagramFeed =
+  FEED_ENDPOINT.length > 0 || fallbackPosts.length > 0;
+
 // ---------------------------------------------------------------------------
 // Feed reader. Normalizes the shapes Behold and the Graph API return so
 // FEED_ENDPOINT can point at either without touching the component.

@@ -33,6 +33,16 @@ export const site = {
     },
   ],
 
+  /**
+   * The sponsorship package, served straight out of /public so the URL is
+   * permanent: https://horizon36596.org/sponsorship-package.pdf
+   *
+   * TO UPDATE IT: overwrite public/sponsorship-package.pdf with the new export
+   * and keep the filename. The link never changes, so anything already sent to
+   * a sponsor keeps working and starts serving the new version.
+   */
+  sponsorshipPackage: '/sponsorship-package.pdf',
+
   /** Online donation portal, run through the team's 501(c)(3) fiscal sponsor. */
   donateUrl: 'https://hcb.hackclub.com/donations/start/horizon-36596',
   fiscalSponsor: 'The Hack Foundation',

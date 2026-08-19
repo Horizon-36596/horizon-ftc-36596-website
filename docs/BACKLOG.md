@@ -8,12 +8,12 @@ for how items move through states.
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
 1. **Wire the Instagram feed** — `content/instagram.ts` → `FEED_ENDPOINT` is
-   empty, so the home page shows a follow-us card instead of the post rail.
-   Instagram has no unauthenticated public feed, so this needs one JSON URL from
-   either a widget service (behold.so has a free tier) or our own Graph API
-   token. Paste it in and the rail goes live and stays live — it fetches in the
-   browser on every visit, so new posts appear with no rebuild. Full reasoning
-   and the accepted JSON shapes are documented in that file. (auto-merge)
+   empty, so the section is **omitted from the home page entirely** (see
+   `hasInstagramFeed`). Instagram has no unauthenticated public feed, so this
+   needs one JSON URL. The team is setting up behold.so; paste its JSON feed URL
+   in and the rail appears and stays current — it fetches in the browser on
+   every visit, so new posts need no rebuild. Accepted JSON shapes and the full
+   reasoning are documented in that file. (auto-merge)
 2. **Drop in the member portraits** — four square crops at
    `public/team/<name>.webp`, 320 × 320, rendered as small circles. File drop
    plus one line per member in `content/team.ts`. The founders _group_ photo
@@ -40,6 +40,13 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Sponsorship package hosted** (2026-08-19) — at the permanent path
+  `/sponsorship-package.pdf`, linked from the Support page header. Replace the
+  file in `public/` keeping the filename and every link already sent to a
+  sponsor keeps working.
+- **Instagram section hidden until it has a feed** (2026-08-19) — with no feed
+  it was a heading above a card that only linked to Instagram, which the footer
+  already does. The section is now omitted rather than filled with a stand-in.
 - **Home page restructure + Instagram rail** (2026-08-19) — a live post carousel
   below the Ender story, styled to match the FTC photo pair; the two sponsorship
   sections at the foot of the page merged into one that runs pitch → proof →

@@ -7,6 +7,7 @@ import { Frame } from '@/components/Frame';
 import { PhotoStack } from '@/components/PhotoStack';
 import { SponsorStrip } from '@/components/SponsorWall';
 import { InstagramRail } from '@/components/InstagramRail';
+import { hasInstagramFeed } from '@/content/instagram';
 import { ArrowRight, ArrowUpRight, Trophy } from '@/components/Icon';
 import { cadChampionship as cad } from '@/content/achievements';
 import { aboutFtc, foundingMembers, mission } from '@/content/team';
@@ -127,13 +128,17 @@ export default function HomePage() {
       </Section>
 
       {/* Straight off the Ender story: proof the team is active right now
-          rather than only in July. Live feed, so it stays current on its own. */}
-      <Section tone="sunk">
-        <SectionHeading eyebrow="Latest" title="What we have been posting" />
-        <Reveal delay={80} className="mt-12">
-          <InstagramRail />
-        </Reveal>
-      </Section>
+          rather than only in July. Live feed, so it stays current on its own.
+          Omitted entirely while there is no feed configured — see
+          `hasInstagramFeed`. */}
+      {hasInstagramFeed ? (
+        <Section tone="sunk">
+          <SectionHeading eyebrow="Latest" title="What we have been posting" />
+          <Reveal delay={80} className="mt-12">
+            <InstagramRail />
+          </Reveal>
+        </Section>
+      ) : null}
 
       {/* What the founders bring. Credibility, in the sponsors' terms. */}
       <Section tone="sunk">

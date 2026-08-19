@@ -93,6 +93,11 @@ Launch set, ordered by value:
 1. **Home / landing** — the flagship page, highest design bar. Order, top to
    bottom: hero → who already backs us → who we are → the Chain Reaction win →
    the Instagram rail → the founders → what FTC is → one sponsorship section.
+   - **The Instagram section is omitted entirely when there is no feed**
+     (`hasInstagramFeed` in `content/instagram.ts`). Team instruction
+     2026-08-19: a heading above a card that only says "we are on Instagram" is
+     worse than no section — it takes the space of real content and delivers a
+     link the footer already carries. Never ship a stand-in here.
    - **Instagram rail** (`components/InstagramRail.tsx`) sits directly after the
      Ender story: the win is from July, and the rail is the evidence the team is
      active now. Native scroll-snap rather than a JS carousel, and tiles carry
@@ -157,6 +162,15 @@ Launch set, ordered by value:
 ### Icebox (not at launch)
 
 - **Blog / Season updates**, **Outreach**, **Portfolio** — candidates for later.
+
+### Hosted documents
+
+The sponsorship package lives at `public/sponsorship-package.pdf` and is served
+at **https://horizon36596.org/sponsorship-package.pdf**. That URL is given out to
+sponsors, so it is permanent: to update the document, overwrite the file and keep
+the filename. Never add a version or a date to it, and never move it — a link
+already sitting in a sponsor's inbox has to keep resolving. `site.sponsorshipPackage`
+is the single reference used on the site.
 
 ## 5. Content rules
 

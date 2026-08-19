@@ -14,6 +14,7 @@ import {
   theAsk,
 } from '@/content/sponsors';
 import { site } from '@/lib/site';
+import { asset } from '@/lib/basePath';
 
 export const metadata: Metadata = {
   title: 'Support us',
@@ -50,6 +51,25 @@ export default function SupportPage() {
             See the tiers
           </Link>
         </div>
+
+        {/* The full package, for the reader who would rather have the document
+            than the page. Served from /public, so the URL never changes when
+            the team re-exports it. */}
+        <a
+          href={asset(site.sponsorshipPackage)}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-link group mt-7"
+        >
+          Download the sponsorship package
+          <span className="font-mono text-[0.75rem] text-haze-500">
+            PDF, 4 pages
+          </span>
+          <ArrowUpRight
+            size={14}
+            className="transition-transform duration-200 ease-out-quart group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          />
+        </a>
       </PageHeader>
 
       {/* The ask, and where the money goes. */}
