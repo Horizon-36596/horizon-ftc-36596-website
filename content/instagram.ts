@@ -34,7 +34,10 @@
 /** JSON feed URL. Empty string = the carousel shows the follow-us card. */
 export const FEED_ENDPOINT = '';
 
-/** How many posts the rail shows at most. */
+/**
+ * How many posts the rail shows at most. Behold's free tier returns 6, which
+ * is enough to overflow the rail on a desktop and therefore enough to scroll.
+ */
 export const MAX_POSTS = 12;
 
 export type InstagramPost = {
@@ -46,6 +49,8 @@ export type InstagramPost = {
   caption?: string;
   /** True for video posts, which get a play affordance. */
   isVideo?: boolean;
+  /** ISO timestamp, shown as a short date under the tile. */
+  timestamp?: string;
 };
 
 /**
@@ -85,13 +90,17 @@ export function normalizePosts(raw: unknown): InstagramPost[] {
 
       // Behold uses sizes/thumbnailUrl; the Graph API uses media_url and
       // thumbnail_url (the latter being the only still for a video).
+      // Behold exposes a `sizes` object of pre-resized webp; the tiles are big
+      // enough that `large` is the right pick, with `medium` as the fallback.
+      const sizes = (o.sizes ?? {}) as Unknown;
       const image =
+        str(sizes.large) ??
+        str(sizes.medium) ??
         str(o.thumbnailUrl) ??
         str(o.thumbnail_url) ??
         str(o.mediaUrl) ??
         str(o.media_url) ??
-        str(o.image) ??
-        str((o.sizes as Unknown | undefined)?.medium as unknown);
+        str(o.image);
 
       const permalink =
         str(o.permalink) ?? str(o.url) ?? str(o.link) ?? undefined;
@@ -105,6 +114,7 @@ export function normalizePosts(raw: unknown): InstagramPost[] {
         permalink,
         caption: caption?.replace(/\s+/g, ' ').trim(),
         isVideo,
+        timestamp: str(o.timestamp),
       };
     })
     .filter((p): p is InstagramPost => p !== null)
