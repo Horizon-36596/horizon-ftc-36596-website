@@ -104,6 +104,10 @@ Launch set, ordered by value:
      the night ground, which keeps a row's rhythm intact next to a neighbour who
      has one. The founders _group_ photo stays a wide 16/9 `Frame`; this rule is
      about individual portraits.
+   - **Mentors are listed as equals.** Team instruction 2026-08-17: an honour on
+     one mentor renders in the same weight as everyone else's team number, never
+     as a highlighted badge. A badge on one card reads as a ranking of the
+     people rather than as a fact about one of them.
 3. **Support us** (`/support`) — the pitch: the ask, the budget donut, what
    sponsorship reaches, the tier table, and the two ways to give. This is the
    page every "Sponsor Horizon" CTA points at, including the header button.
@@ -158,12 +162,10 @@ impact figures, socials, and the fact that there are no signed sponsors yet.
 Still outstanding. Each one is a marked placeholder in the code, and each has a
 designed empty state on the live site rather than a gap:
 
-| What                                | Where it goes                                                   | Why it's blocked                                                                    |
-| ----------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Founders group photo                | `public/team/founders.webp` (16/9, 1600×900+)                   | Not supplied                                                                        |
-| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied                                                                        |
-| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`            | Not supplied                                                                        |
-| Bilal Chaudhary's photo             | `public/team/mentors/bilal.webp` (square, 320×320)              | Not supplied; his card shows his initial                                            |
-| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production                                                           |
-| Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write                                                                 |
-| A real form endpoint                | `components/ContactForm.tsx` → `FORM_ENDPOINT`                  | No account set up; falls back to a prefilled mail-client handoff, which works today |
+| What                                | Where it goes                                                   | Why it's blocked          |
+| ----------------------------------- | --------------------------------------------------------------- | ------------------------- |
+| Founders group photo                | `public/team/founders.webp` (16/9, 1600×900+)                   | Not supplied              |
+| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied              |
+| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`            | Not supplied              |
+| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production |
+| Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write       |
