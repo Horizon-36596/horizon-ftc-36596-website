@@ -7,27 +7,20 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Wire the Instagram feed** — `content/instagram.ts` → `FEED_ENDPOINT` is
-   empty, so the section is **omitted from the home page entirely** (see
-   `hasInstagramFeed`). Instagram has no unauthenticated public feed, so this
-   needs one JSON URL. The team is setting up behold.so; paste its JSON feed URL
-   in and the rail appears and stays current — it fetches in the browser on
-   every visit, so new posts need no rebuild. Accepted JSON shapes and the full
-   reasoning are documented in that file. (auto-merge)
-2. **Drop in the member portraits** — four square crops at
+1. **Drop in the member portraits** — four square crops at
    `public/team/<name>.webp`, 320 × 320, rendered as small circles. File drop
    plus one line per member in `content/team.ts`. The founders _group_ photo
    slot is gone from both Home and Team, on team instruction — add it back only
    when a group shot actually exists. (auto-merge)
-3. **Write Ender's design story** — the Chain Reaction entry currently states
+2. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
-4. **Confirm rights and credit for the FIRST Championship photos** — the two
+3. **Confirm rights and credit for the FIRST Championship photos** — the two
    event photos in `public/ftc/` came from the team. If they are official FIRST
    press images, check whether a credit line is required and add one under
    `aboutFtc.photoCaption`. (auto-merge)
-5. **Clear the under-construction banner** — set `announcement` to `null` in
-   `lib/site.ts` once items 1–4 are done. One line, and the bar and its spacing
+4. **Clear the under-construction banner** — set `announcement` to `null` in
+   `lib/site.ts` once items 1–3 are done. One line, and the bar and its spacing
    both go. (auto-merge)
 
 ## In progress
@@ -40,6 +33,14 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Instagram feed live** (2026-08-19) — Behold JSON feed wired to
+  `FEED_ENDPOINT`, so the rail shows real posts and refreshes on every visit
+  (their CDN sets a 10s cache). Images come from `behold.pictures`, which
+  re-hosts them; the raw `cdninstagram.com` URLs in the same payload expire and
+  are only ever a last-resort fallback. Reader now reads `sizes.*.mediaUrl`
+  (an object, not a string), prefers `prunedCaption`, respects Behold's
+  per-post `visibility`, and badges carousels `1/n`. Tiles are square because
+  every post in the feed is 1:1.
 - **Sponsorship package hosted** (2026-08-19) — at the permanent path
   `/sponsorship-package.pdf`, linked from the Support page header. Replace the
   file in `public/` keeping the filename and every link already sent to a

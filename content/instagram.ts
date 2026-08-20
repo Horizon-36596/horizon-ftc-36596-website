@@ -32,7 +32,7 @@
 // ---------------------------------------------------------------------------
 
 /** JSON feed URL. Empty string = the carousel shows the follow-us card. */
-export const FEED_ENDPOINT = '';
+export const FEED_ENDPOINT = 'https://feeds.behold.so/fNxcdbfF47R1PvaP53jm';
 
 /**
  * How many posts the rail shows at most. Behold's free tier returns 6, which
@@ -49,6 +49,8 @@ export type InstagramPost = {
   caption?: string;
   /** True for video posts, which get a play affordance. */
   isVideo?: boolean;
+  /** Number of images when the post is a carousel, so the tile can say so. */
+  albumCount?: number;
   /** ISO timestamp, shown as a short date under the tile. */
   timestamp?: string;
 };
@@ -83,6 +85,23 @@ function str(value: unknown): string | undefined {
   return typeof value === 'string' && value.length > 0 ? value : undefined;
 }
 
+/**
+ * Pulls a URL out of one entry in Behold's `sizes` map.
+ *
+ * Each entry is an OBJECT — `{ width, height, mediaUrl }` — not a string. This
+ * matters more than it looks: miss it and the reader falls through to the
+ * post's own `mediaUrl`, which points at cdninstagram.com. Those URLs are
+ * signed and expire, so the rail would look correct on the day it shipped and
+ * fill with broken images a few days later.
+ */
+function sizeUrl(value: unknown): string | undefined {
+  if (typeof value === 'string') return str(value);
+  if (value && typeof value === 'object') {
+    return str((value as Unknown).mediaUrl) ?? str((value as Unknown).url);
+  }
+  return undefined;
+}
+
 export function normalizePosts(raw: unknown): InstagramPost[] {
   const list: unknown[] = Array.isArray(raw)
     ? raw
@@ -97,17 +116,31 @@ export function normalizePosts(raw: unknown): InstagramPost[] {
   return list
     .map((item): InstagramPost | null => {
       const o = (item ?? {}) as Unknown;
+
+      // Behold lets a post be hidden from the feed without deleting it on
+      // Instagram. Respect that: anything not explicitly visible is dropped.
+      const visibility = str(o.visibility);
+      if (visibility && visibility !== 'visible') return null;
+
       const type = str(o.mediaType) ?? str(o.media_type);
       const isVideo = type ? /video|reel/i.test(type) : undefined;
+      // A carousel holds several images behind the one we show, which is worth
+      // signalling so the tile does not look like the whole post.
+      const children = Array.isArray(o.children) ? o.children.length : 0;
+      const albumCount =
+        children > 1 || (type ? /carousel|album/i.test(type) : false)
+          ? Math.max(children, 2)
+          : undefined;
 
-      // Behold uses sizes/thumbnailUrl; the Graph API uses media_url and
-      // thumbnail_url (the latter being the only still for a video).
-      // Behold exposes a `sizes` object of pre-resized webp; the tiles are big
-      // enough that `large` is the right pick, with `medium` as the fallback.
+      // Prefer Behold's re-hosted, pre-resized webp on its own CDN. Only fall
+      // back to the raw Instagram URL if there is nothing else, and see
+      // `sizeUrl` above for why that fallback is a last resort.
       const sizes = (o.sizes ?? {}) as Unknown;
       const image =
-        str(sizes.large) ??
-        str(sizes.medium) ??
+        sizeUrl(sizes.large) ??
+        sizeUrl(sizes.medium) ??
+        sizeUrl(sizes.full) ??
+        sizeUrl(sizes.small) ??
         str(o.thumbnailUrl) ??
         str(o.thumbnail_url) ??
         str(o.mediaUrl) ??
@@ -119,13 +152,17 @@ export function normalizePosts(raw: unknown): InstagramPost[] {
 
       if (!image || !permalink) return null;
 
-      const caption = str(o.caption) ?? str(o.text);
+      // `prunedCaption` is the caption with trailing hashtag and mention blocks
+      // stripped, which is what we want under a tile.
+      const caption =
+        str(o.prunedCaption) ?? str(o.caption) ?? str(o.text) ?? undefined;
 
       return {
         image,
         permalink,
         caption: caption?.replace(/\s+/g, ' ').trim(),
         isVideo,
+        albumCount,
         timestamp: str(o.timestamp),
       };
     })

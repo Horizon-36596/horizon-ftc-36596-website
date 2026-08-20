@@ -17,9 +17,10 @@ import {
 //   - Native scroll-snap, not a JS carousel. A trackpad, a touch drag, a
 //     shift-wheel and the keyboard all work before any of our own code runs,
 //     and there is no transform to fight the browser over.
-//   - Portrait 4/5 tiles, not squares. It is the ratio Instagram itself favours
-//     now, it gives the rail real presence against a full-width section, and it
-//     matches the portrait language the team avatars already use.
+//   - Square tiles, matching what the account actually posts. Every post in
+//     the feed is 1:1, and a portrait tile would centre-crop a fifth off
+//     artwork the team laid out deliberately. object-cover still handles a
+//     future portrait or landscape post gracefully.
 //   - The rail fades into the night ground at both edges rather than being cut
 //     off by the viewport. A hard edge announces "this is a scroll box"; a fade
 //     reads as more of the same thing continuing past the frame, which is the
@@ -44,8 +45,9 @@ function shortDate(iso?: string) {
   if (!iso) return null;
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return null;
-  // Fixed locale and format, so this renders identically on the server and the
-  // client whatever the visitor's machine is set to.
+  // Fixed locale and format so the shape is stable. The day itself is the
+  // visitor's local one, which is what Instagram shows them too, so a post made
+  // late in the evening UTC can read as the previous date in Portland.
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
@@ -167,7 +169,7 @@ export function InstagramRail() {
                   rel="noreferrer"
                   className="group block"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-night-700 bg-night-900 shadow-lifted transition duration-500 ease-out-quart group-hover:-translate-y-1 group-hover:border-brand-500/40">
+                  <div className="relative aspect-square overflow-hidden rounded-lg border border-night-700 bg-night-900 shadow-lifted transition duration-500 ease-out-quart group-hover:-translate-y-1 group-hover:border-brand-500/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.image}
@@ -186,12 +188,14 @@ export function InstagramRail() {
                       className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night-950/60 to-transparent"
                     />
 
-                    {post.isVideo ? (
+                    {/* Most posts are carousels; saying so stops the tile
+                        reading as the whole post. */}
+                    {post.isVideo || post.albumCount ? (
                       <span
                         aria-hidden
                         className="absolute right-3 top-3 rounded-full bg-night-950/70 px-2.5 py-1 font-mono text-[0.625rem] uppercase tracking-[0.12em] text-haze-100 backdrop-blur-sm"
                       >
-                        Video
+                        {post.isVideo ? 'Video' : `1/${post.albumCount}`}
                       </span>
                     ) : null}
                   </div>

@@ -98,6 +98,15 @@ Launch set, ordered by value:
      2026-08-19: a heading above a card that only says "we are on Instagram" is
      worse than no section — it takes the space of real content and delivers a
      link the footer already carries. Never ship a stand-in here.
+   - **The feed is Behold** (behold.so), connected to the team's Business
+     account and pointed at by `FEED_ENDPOINT`. It is a _data_ source, not a
+     widget: it returns JSON and every pixel is still ours. Two things about its
+     payload are load-bearing. Its `sizes` entries are objects
+     (`{width, height, mediaUrl}`), not strings — read `.mediaUrl`. And the
+     `mediaUrl` at the top level of a post points at `cdninstagram.com`, whose
+     URLs are signed and **expire**; always prefer the `behold.pictures` URLs,
+     or the rail will look right the day it ships and fill with broken images
+     within days.
    - **Instagram rail** (`components/InstagramRail.tsx`) sits directly after the
      Ender story: the win is from July, and the rail is the evidence the team is
      active now. Native scroll-snap rather than a JS carousel, and tiles carry
