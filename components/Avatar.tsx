@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { asset } from '@/lib/basePath';
 
-// Circular portrait for people — founders and mentors.
+// Circular portrait for people — members and mentors.
 //
 // Deliberately small. The photos the team can get hold of are low resolution,
 // and a low-resolution image fails loudly at full-bleed portrait size and

@@ -6,12 +6,12 @@ import { Prose } from '@/components/Prose';
 import { Reveal } from '@/components/Reveal';
 import { Avatar } from '@/components/Avatar';
 import { ArrowRight, ArrowUpRight } from '@/components/Icon';
-import { foundingMembers, mentors, mission, recruiting } from '@/content/team';
+import { members, mentors, mission, recruiting } from '@/content/team';
 
 export const metadata: Metadata = {
   title: 'Team',
   description:
-    'Horizon was founded in 2026 by captains and leads from three existing FIRST Tech Challenge teams. Our mission, our founding members, our mentors, and how to join.',
+    'Horizon was founded in 2026 by leaders from three existing FIRST Tech Challenge teams. Our mission, the people on the team, our mentors, and how to join.',
 };
 
 // People are listed as rows — a small circular portrait beside the text, not a
@@ -30,14 +30,14 @@ export default function TeamPage() {
         lead={<p>{mission}</p>}
       />
 
-      {/* The founders. No group shot above them — there is not going to be one
-          for a while, and a 16/9 empty slot at the top of the page was the
-          first thing a visitor saw. */}
+      {/* The people on the team, listed flat. No group shot above them — there
+          is not going to be one for a while, and a 16/9 empty slot at the top of
+          the page was the first thing a visitor saw. */}
       <Section tone="sunk">
-        <SectionHeading eyebrow="Founding members" title="Who is on the team" />
+        <SectionHeading eyebrow="Members" title="Who is on the team" />
 
         <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-night-700/70 bg-night-700/70 sm:grid-cols-2">
-          {foundingMembers.map((member, i) => (
+          {members.map((member, i) => (
             <Reveal as="li" key={member.name} delay={i * 70}>
               <div className={`${ROW} h-full`}>
                 <Avatar src={member.photo} name={member.name} size={72} />

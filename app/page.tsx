@@ -10,7 +10,7 @@ import { InstagramRail } from '@/components/InstagramRail';
 import { hasInstagramFeed } from '@/content/instagram';
 import { ArrowRight, ArrowUpRight, Trophy } from '@/components/Icon';
 import { cadChampionship as cad } from '@/content/achievements';
-import { aboutFtc, foundingMembers, mission } from '@/content/team';
+import { aboutFtc, members, mission } from '@/content/team';
 import { impactAreas } from '@/content/sponsors';
 import { site } from '@/lib/site';
 
@@ -32,9 +32,9 @@ export default function HomePage() {
       </section>
 
       {/* Who we are. The mission paragraph is the team's own words, verbatim.
-          No photo alongside it — there is no founders shot yet and there will
-          not be for a while, so the text gets the full measure rather than
-          sitting next to an empty slot. */}
+          No photo alongside it — there is no group shot yet and there will not
+          be for a while, so the text gets the full measure rather than sitting
+          next to an empty slot. */}
       <Section tone="sunk">
         <SectionHeading eyebrow="About us" title="Who we are" />
         <Reveal delay={80}>
@@ -140,23 +140,23 @@ export default function HomePage() {
         </Section>
       ) : null}
 
-      {/* What the founders bring. Credibility, in the sponsors' terms. */}
+      {/* What the team brings. Credibility, in the sponsors' terms. */}
       <Section tone="sunk">
         <SectionHeading
-          eyebrow="Our founders"
-          title="Who started Horizon"
+          eyebrow="The team"
+          title="Who is on the team"
           intro={
             <p>
-              Horizon is a rookie team. The people in it are not. Between the
-              four founders there is a World Championship division finalist, a
-              robot that finished fourth in the world by OPR, an Inspire award,
-              and the two most referenced FTC robots on Onshape.
+              Horizon is a rookie team. The people on it are not. Between them
+              there is a World Championship division finalist, a robot that
+              finished fourth in the world by OPR, an Inspire award, and the two
+              most referenced FTC robots on Onshape.
             </p>
           }
         />
 
         <ul className="mt-14 divide-y divide-night-700/70 border-y border-night-700/70">
-          {foundingMembers.map((member, i) => (
+          {members.map((member, i) => (
             <Reveal as="li" key={member.name} delay={i * 70}>
               <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2 py-6">
                 <h3 className="min-w-[8rem] text-[1.375rem] font-light text-haze-50">

@@ -1,6 +1,13 @@
 // ---------------------------------------------------------------------------
 // TEAM — mission, the people, and the mentors.
 //
+// NOBODY IS LABELLED A FOUNDER. Team instruction 2026-08-23: the four people
+// who started Horizon are listed as members, exactly like everyone who joins
+// after them. A "founders" heading builds a tier no new member can ever reach,
+// which is the opposite of what this team is for. The founding itself is still
+// told, in the mission paragraph, as leaders from three existing teams — the
+// story without the rank.
+//
 // Every fact here comes from the team. Nothing is invented. Where the team has
 // not supplied something yet (a member's years in FIRST, a portrait) the field
 // is left empty, and the page shows a designed placeholder rather than a
@@ -26,7 +33,7 @@ export type Member = {
   photo?: string;
 };
 
-export const foundingMembers: Member[] = [
+export const members: Member[] = [
   {
     name: 'Levin',
     role: 'Design / Build / Programming',

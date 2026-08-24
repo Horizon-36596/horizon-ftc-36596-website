@@ -29,9 +29,15 @@ robots, 65-photo gallery) does not transfer — borrow the _shape_, not the
 inventory. Newness is framed as an asset: every process and design decision is
 the team's own, nothing inherited.
 
-Founded **2026** in **Portland, Oregon** by captains and leads from three
-existing FTC teams — Levin (12808), Saket (23511), Nippurn (32154), and Nico. A
-**community** team, not a school team, and a **nonprofit**. The team does charge
+Founded **2026** in **Portland, Oregon** by leaders from three existing FTC
+teams. **Nobody on the site is labelled a founder** — team instruction
+2026-08-23. The founding story is told, but the four people who started the team
+are listed as members exactly like anyone who joins later: a "founders" heading
+builds a tier a new member can never reach. Say "leaders from three existing
+teams", never name a founding class. The roster export is `members`, not
+`foundingMembers`, for the same reason.
+
+Horizon is a **community** team, not a school team, and a **nonprofit**. It does charge
 a member fee, so **the site never says or implies that it doesn't** — team
 instruction, 2026-08-16. Funding comes from sponsorship (the largest share) plus
 the team's own fundraisers; say both, and never claim sponsors cover everything.
@@ -92,7 +98,7 @@ Launch set, ordered by value:
 
 1. **Home / landing** — the flagship page, highest design bar. Order, top to
    bottom: hero → who already backs us → who we are → the Chain Reaction win →
-   the Instagram rail → the founders → what FTC is → one sponsorship section.
+   the Instagram rail → the team roster → what FTC is → one sponsorship section.
    - **The Instagram section is omitted entirely when there is no feed**
      (`hasInstagramFeed` in `content/instagram.ts`). Team instruction
      2026-08-19: a heading above a card that only says "we are on Instagram" is
@@ -117,10 +123,10 @@ Launch set, ordered by value:
      be separate sections and read out of order, with the pitch landing after
      the proof. Merged 2026-08-19 on team instruction: heading and ask, then the
      impact grid, then a single CTA row. Do not split it again.
-   - **No founders photo.** Removed from Home and Team 2026-08-19 — the team
-     will not have a group shot for a while, and the mission text takes the full
-     prose measure instead of sitting beside an empty slot.
-2. **Team / About** — the mission verbatim, the founding members, recruiting,
+   - **No group photo.** Removed from Home and Team 2026-08-19 — the team will
+     not have one for a while, and the mission text takes the full prose measure
+     instead of sitting beside an empty slot.
+2. **Team / About** — the mission verbatim, the members, recruiting,
    and the mentors. Serves judges and prospective members.
    - **People are rows, not portrait cards.** Every person on the site renders
      as a small circular portrait (72px, via `components/Avatar.tsx`) beside
@@ -129,7 +135,7 @@ Launch set, ordered by value:
      advertises. Portraits are therefore **square** crops — 320 x 320 is
      plenty — not 4/5 verticals. No `photo` set renders the person's initial on
      the night ground, which keeps a row's rhythm intact next to a neighbour who
-     has one. The founders _group_ photo stays a wide 16/9 `Frame`; this rule is
+     has one. A team _group_ photo would stay a wide 16/9 `Frame`; this rule is
      about individual portraits.
    - **Mentors are listed as equals.** Team instruction 2026-08-17: an honour on
      one mentor renders in the same weight as everyone else's team number, never
@@ -201,6 +207,6 @@ designed empty state on the live site rather than a gap:
 | What                                | Where it goes                                                   | Why it's blocked          |
 | ----------------------------------- | --------------------------------------------------------------- | ------------------------- |
 | Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied              |
-| Nippurn's and Nico's years in FIRST | `content/team.ts` → `foundingMembers` → `experience`            | Not supplied              |
+| Nippurn's and Nico's years in FIRST | `content/team.ts` → `members` → `experience`                    | Not supplied              |
 | BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production |
 | Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write       |

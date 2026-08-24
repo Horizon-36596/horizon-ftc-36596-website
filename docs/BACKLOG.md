@@ -28,7 +28,14 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
-- **Member portraits in** (2026-08-23) — all four founders. Crops are
+- **Nobody is a "founder" any more** (2026-08-23) — team instruction. The four
+  people who started Horizon are listed as members, exactly like anyone who
+  joins later; a founders heading builds a tier a new member can never reach.
+  The founding is still told, as leaders from three existing teams. `members`
+  replaces the `foundingMembers` export, and the Contact page stopped
+  hardcoding "four people reading it", which would have gone stale on the first
+  new member.
+- **Member portraits in** (2026-08-23) — all four members. Crops are
   face-centred, not centre-of-frame: Levin's and Nico's sources are tall
   portraits where a naive square crop cuts through the head. Head height is
   normalised to ~55% of the frame across all four so the cards read as one set,
@@ -53,7 +60,7 @@ _(none)_
 - **Home page restructure + Instagram rail** (2026-08-19) — a live post carousel
   below the Ender story, styled to match the FTC photo pair; the two sponsorship
   sections at the foot of the page merged into one that runs pitch → proof →
-  action; the founders photo slot removed from Home and Team so the text takes
+  action; the group photo slot removed from Home and Team so the text takes
   the full measure; Nippurn's fifth year in FIRST recorded.
 - **Mentor roster complete** (2026-08-17) — Declan Simcich, Bilal Chaudhary,
   Joshua Wang, and Nishant Vikramaditya, all four with photos. Listed as equals:

@@ -39,7 +39,7 @@ export default function ContactPage() {
         title="Get in touch"
         lead={
           <p>
-            One inbox, four people reading it. Sponsorship, joining the team, or
+            One inbox, and the team reads it. Sponsorship, joining the team, or
             anything else — it all comes to the same place.
           </p>
         }
