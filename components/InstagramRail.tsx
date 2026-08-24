@@ -31,7 +31,7 @@ import {
 //
 // Tiles are plain <img>: the URLs come from a CDN at runtime, so their
 // dimensions are unknown at build time and there is nothing for the image
-// optimizer to do in a static export. Every tile is a fixed 4/5 box with the
+// optimizer to do in a static export. Every tile is a fixed square box with the
 // image cropped into it, which is what stops the rail reflowing as posts of
 // different shapes load.
 
