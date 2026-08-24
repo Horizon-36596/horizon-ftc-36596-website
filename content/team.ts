@@ -51,7 +51,8 @@ export const foundingMembers: Member[] = [
   {
     name: 'Nico',
     role: 'Design / Build',
-    // <!-- PLACEHOLDER: Nico's prior FTC team and years in FIRST. -->
+    experience: 'Fifth year in FIRST',
+    // <!-- PLACEHOLDER: Nico's prior FTC team, if he came from one. -->
     // photo: '/team/nico.webp',
   },
 ];

@@ -7,11 +7,12 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Drop in the member portraits** — four square crops at
-   `public/team/<name>.webp`, 320 × 320, rendered as small circles. File drop
-   plus one line per member in `content/team.ts`. The founders _group_ photo
-   slot is gone from both Home and Team, on team instruction — add it back only
-   when a group shot actually exists. (auto-merge)
+1. **Drop in the member portraits** — Levin, Saket, Nippurn and Nico. Square
+   crops at `public/team/<name>.webp`, 320 x 320, rendered as small circles;
+   uncomment the `photo` line per member in `content/team.ts`. Cards show the
+   member's initial until then. **Note:** pasted image attachments have failed
+   to reach the assistant three times running (Bilal's, Levin's, Nico's), so the
+   reliable route is to save the file to disk and give the path. (auto-merge)
 2. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
