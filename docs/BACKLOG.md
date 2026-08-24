@@ -7,21 +7,15 @@ for how items move through states.
 
 <!-- Highest-priority item first. One line each; link a spec section if it exists. -->
 
-1. **Drop in the member portraits** — Levin, Saket, Nippurn and Nico. Square
-   crops at `public/team/<name>.webp`, 320 x 320, rendered as small circles;
-   uncomment the `photo` line per member in `content/team.ts`. Cards show the
-   member's initial until then. **Note:** pasted image attachments have failed
-   to reach the assistant three times running (Bilal's, Levin's, Nico's), so the
-   reliable route is to save the file to disk and give the path. (auto-merge)
-2. **Write Ender's design story** — the Chain Reaction entry currently states
+1. **Write Ender's design story** — the Chain Reaction entry currently states
    only confirmed facts. Add the team's own account of the design decisions to
    `content/robots.ts` → `ender.description`. (auto-merge)
-3. **Confirm rights and credit for the FIRST Championship photos** — the two
+2. **Confirm rights and credit for the FIRST Championship photos** — the two
    event photos in `public/ftc/` came from the team. If they are official FIRST
    press images, check whether a credit line is required and add one under
    `aboutFtc.photoCaption`. (auto-merge)
-4. **Clear the under-construction banner** — set `announcement` to `null` in
-   `lib/site.ts` once items 1–3 are done. One line, and the bar and its spacing
+3. **Clear the under-construction banner** — set `announcement` to `null` in
+   `lib/site.ts` once items 1–2 are done. One line, and the bar and its spacing
    both go. (auto-merge)
 
 ## In progress
@@ -34,6 +28,13 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Member portraits in** (2026-08-23) — all four founders. Crops are
+  face-centred, not centre-of-frame: Levin's and Nico's sources are tall
+  portraits where a naive square crop cuts through the head. Head height is
+  normalised to ~55% of the frame across all four so the cards read as one set,
+  and the two sources too narrow to allow that framing were extended with their
+  own edge colour rather than shipped zoomed twice as far in. Nico's fifth year
+  in FIRST also recorded; his prior FTC team is the last gap on his card.
 - **Instagram feed live** (2026-08-19) — Behold JSON feed wired to
   `FEED_ENDPOINT`, so the rail shows real posts and refreshes on every visit
   (their CDN sets a 10s cache). Images come from `behold.pictures`, which

@@ -32,28 +32,28 @@ export const foundingMembers: Member[] = [
     role: 'Design / Build / Programming',
     formerTeam: 'FTC 12808',
     experience: 'Third year in FIRST',
-    // photo: '/team/levin.webp',
+    photo: '/team/levin.webp',
   },
   {
     name: 'Saket',
     role: 'Design / Programming / Business',
     formerTeam: 'FTC 23511',
     experience: 'Sixth year in FIRST',
-    // photo: '/team/saket.webp',
+    photo: '/team/saket.webp',
   },
   {
     name: 'Nippurn',
     role: 'Design / Build / Business',
     formerTeam: 'FTC 32154',
     experience: 'Fifth year in FIRST',
-    // photo: '/team/nippurn.webp',
+    photo: '/team/nippurn.webp',
   },
   {
     name: 'Nico',
     role: 'Design / Build',
     experience: 'Fifth year in FIRST',
     // <!-- PLACEHOLDER: Nico's prior FTC team, if he came from one. -->
-    // photo: '/team/nico.webp',
+    photo: '/team/nico.webp',
   },
 ];
 
