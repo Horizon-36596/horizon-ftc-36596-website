@@ -25,9 +25,8 @@ export default function SponsorsPage() {
         title="Who backs Horizon"
         lead={
           <p>
-            Horizon was founded this year, so this list is short and every name
-            on it took a chance on a team with no season behind it. Each one is
-            here because of something they actually gave us.
+            The companies and organizations that support Horizon, and what each
+            of them provides.
           </p>
         }
       >

@@ -24,13 +24,7 @@ export default function RobotsPage() {
       <PageHeader
         eyebrow="Robots"
         title="Our robots"
-        lead={
-          <p>
-            Horizon is one season old, so this page is short. What is here is
-            real: one CAD entry that won a competition, and one competition
-            robot being built right now.
-          </p>
-        }
+        lead={<p>The robots Horizon has designed, season by season.</p>}
       />
 
       <Section tone="sunk">

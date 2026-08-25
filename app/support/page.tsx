@@ -30,10 +30,9 @@ export default function SupportPage() {
         title="Sponsor Horizon"
         lead={
           <p>
-            We run our own fundraisers, but sponsorship covers the largest share
-            of what a season costs. Everything we build is paid for by people
-            who decided a rookie team was worth backing before it had anything
-            to show them.
+            We run our own fundraisers, and sponsorship covers the largest share
+            of what a season costs. This page covers the budget, the tiers, and
+            how to give.
           </p>
         }
       >

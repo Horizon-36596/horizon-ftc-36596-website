@@ -39,8 +39,8 @@ export default function ContactPage() {
         title="Get in touch"
         lead={
           <p>
-            One inbox, and the team reads it. Sponsorship, joining the team, or
-            anything else — it all comes to the same place.
+            Questions about sponsorship, joining the team, or working together
+            all reach the same inbox.
           </p>
         }
       />

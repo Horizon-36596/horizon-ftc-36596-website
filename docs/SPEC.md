@@ -44,6 +44,21 @@ the team's own fundraisers; say both, and never claim sponsors cover everything.
 The mission paragraph is team-supplied and lives verbatim in `content/team.ts` —
 do not reword it.
 
+**Page leads must be durable (team instruction, 2026-08-23).** A page's lead
+paragraph says what the page contains and nothing else. Three things are out:
+
+- **Commentary on the team's own status.** "Horizon is one season old, so this
+  page is short", "a team with no season behind it", "a rookie team was worth
+  backing" — all rewritten. It reads as cocky, and no person writes that way
+  about their own team.
+- **Anything that counts.** "one CAD entry and one competition robot", "this
+  list is short" — a lead that inventories the page needs editing every time the
+  page changes, and is wrong in between.
+- **Talking about the page itself** rather than the subject.
+
+Write the lead so it is still true in two seasons: "The robots Horizon has
+designed, season by season."
+
 **Voice rules (team instruction, 2026-08-16).** Section titles state what the
 section is, plainly — "Who we are", "Our robots", "Sponsorship tiers". No
 constructed or clever headings ("Four founders, and everything they did before

@@ -28,6 +28,11 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Page leads rewritten to last** (2026-08-23) — the Robots, Sponsors, Contact
+  and Support us leads editorialised about the team being new and inventoried
+  what was on the page, so they read as cocky and needed editing every time the
+  page changed. Each now states what the page contains and nothing more. Rule
+  recorded in `docs/SPEC.md` §3.
 - **Nobody is a "founder" any more** (2026-08-23) — team instruction. The four
   people who started Horizon are listed as members, exactly like anyone who
   joins later; a founders heading builds a tier a new member can never reach.
