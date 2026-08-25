@@ -147,10 +147,10 @@ export default function HomePage() {
           title="Who is on the team"
           intro={
             <p>
-              Horizon is a rookie team. The people on it are not. Between them
-              there is a World Championship division finalist, a robot that
-              finished fourth in the world by OPR, an Inspire award, and the two
-              most referenced FTC robots on Onshape.
+              Between the people on this team there is a World Championship
+              division finalist, a robot that finished fourth in the world by
+              OPR, an Inspire award, and the two most referenced FTC robots on
+              Onshape.
             </p>
           }
         />

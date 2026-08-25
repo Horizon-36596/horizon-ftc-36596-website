@@ -65,9 +65,9 @@ export default function SponsorsPage() {
       {/* One route on from here, for the company that is still deciding. */}
       <Section glow>
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Join them</p>
+          <p className="eyebrow">Become a sponsor</p>
           <h2 className="mt-5 text-display-sm font-light text-haze-50">
-            There is room on this page
+            What sponsorship includes
           </h2>
           <Prose className="mx-auto mt-6 text-center">
             <p>

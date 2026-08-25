@@ -28,6 +28,11 @@ _(none)_
 
 <!-- Shipped + merged items, newest first. -->
 
+- **Two more cocky/self-referential lines rewritten** (2026-08-23) — Home's
+  roster intro dropped "Horizon is a rookie team. The people on it are not." and
+  now opens directly on the facts; Sponsors' closing heading "There is room on
+  this page" is now "What sponsorship includes". Same rule as the page-leads
+  pass just before this.
 - **Page leads rewritten to last** (2026-08-23) — the Robots, Sponsors, Contact
   and Support us leads editorialised about the team being new and inventoried
   what was on the page, so they read as cocky and needed editing every time the
