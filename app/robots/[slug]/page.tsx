@@ -6,8 +6,9 @@ import { Section, SectionHeading } from '@/components/Section';
 import { Prose } from '@/components/Prose';
 import { Reveal } from '@/components/Reveal';
 import { Frame } from '@/components/Frame';
-import { ArrowRight, Gear } from '@/components/Icon';
+import { ArrowRight, ArrowUpRight, Gear } from '@/components/Icon';
 import { getRobot, robots } from '@/content/robots';
+import { asset } from '@/lib/basePath';
 
 // Static export needs every dynamic route enumerated at build time.
 export function generateStaticParams() {
@@ -47,10 +48,27 @@ export default async function RobotPage({
         title={robot.name}
         lead={robot.tagline ? <p>{robot.tagline}</p> : undefined}
       >
-        <Link href="/robots/" className="btn-link mt-8">
-          <ArrowRight size={16} className="rotate-180" />
-          All robots
-        </Link>
+        <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <Link href="/robots/" className="btn-link">
+            <ArrowRight size={16} className="rotate-180" />
+            All robots
+          </Link>
+
+          {robot.portfolioPdf ? (
+            <a
+              href={asset(robot.portfolioPdf)}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-link group"
+            >
+              Download the portfolio
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-200 ease-out-quart group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </a>
+          ) : null}
+        </div>
       </PageHeader>
 
       <Section tone="sunk">

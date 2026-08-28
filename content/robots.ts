@@ -50,6 +50,8 @@ export type Robot = {
   mainImageHeight?: number;
   /** Paragraphs for the robot's page. Empty array = "description coming soon". */
   description: string[];
+  /** Path under /public to a PDF portfolio for this robot, if one exists. */
+  portfolioPdf?: string;
   subsystems: Subsystem[];
 };
 
@@ -110,6 +112,7 @@ export const robots: Robot[] = [
       // <!-- PLACEHOLDER: the team's own account of Ender's design decisions.
       //      One string per paragraph. -->
     ],
+    portfolioPdf: '/chain-reaction-portfolio.pdf',
     subsystems: [
       // <!-- PLACEHOLDER: add Ender's subsystems and their write-ups when the
       //      team is ready to break the model down publicly. -->

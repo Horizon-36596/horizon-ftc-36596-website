@@ -43,6 +43,13 @@ export const site = {
    */
   sponsorshipPackage: '/sponsorship-package.pdf',
 
+  /**
+   * Photos of the team's robots, served the same way as the sponsorship
+   * package: overwrite public/team-robot-pictures.pdf and keep the filename,
+   * the URL never changes.
+   */
+  robotPicturesPdf: '/team-robot-pictures.pdf',
+
   /** Online donation portal, run through the team's 501(c)(3) fiscal sponsor. */
   donateUrl: 'https://hcb.hackclub.com/donations/start/horizon-36596',
   fiscalSponsor: 'The Hack Foundation',

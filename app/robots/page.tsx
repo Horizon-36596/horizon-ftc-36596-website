@@ -4,8 +4,10 @@ import { PageHeader } from '@/components/PageHeader';
 import { Section } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { Frame } from '@/components/Frame';
-import { ArrowRight } from '@/components/Icon';
+import { ArrowRight, ArrowUpRight } from '@/components/Icon';
 import { robotsByYear } from '@/content/robots';
+import { asset } from '@/lib/basePath';
+import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Robots',
@@ -25,7 +27,20 @@ export default function RobotsPage() {
         eyebrow="Robots"
         title="Our robots"
         lead={<p>The robots Horizon has designed, season by season.</p>}
-      />
+      >
+        <a
+          href={asset(site.robotPicturesPdf)}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-link group mt-8"
+        >
+          Download robot photos
+          <ArrowUpRight
+            size={14}
+            className="transition-transform duration-200 ease-out-quart group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          />
+        </a>
+      </PageHeader>
 
       <Section tone="sunk">
         <ul className="space-y-8">
