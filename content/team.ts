@@ -112,7 +112,7 @@ export const mentors: Mentor[] = [
     title: 'Employee at Offset Robotics',
     href: 'https://offsetrobotics.com',
     background: 'FTC 26000 alumni',
-    mentorsOn: 'Game strategy and robot hardware',
+    mentorsOn: 'Game strategy, robot hardware, and design philosophy',
     photo: '/team/mentors/declan.webp',
   },
   {
@@ -136,8 +136,22 @@ export const mentors: Mentor[] = [
     href: 'https://tektitebiz.com/',
     background: 'FTC 21229 alumni',
     honour: 'FIRST Tech Challenge World Champion',
-    mentorsOn: 'Programming: simulation and replay, command base, and more',
+    mentorsOn: 'Programming (simulation and replay, command base, etc.)',
     photo: '/team/mentors/nishant.webp',
+  },
+  {
+    name: 'Devyn',
+    title: 'Student on FTC 14343',
+    background: 'FTC 23396 alumni',
+    mentorsOn: 'Game strategy, programming (simulation, command base, etc.)',
+    photo: '/team/mentors/devyn.webp',
+  },
+  {
+    name: 'Patrick Chu',
+    title: 'Student at MIT',
+    background: 'FTC 9614 and FTC 28596 alumni',
+    mentorsOn: 'Robot hardware and design philosophy',
+    photo: '/team/mentors/patrick.webp',
   },
 ];
 
