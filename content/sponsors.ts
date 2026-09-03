@@ -201,6 +201,20 @@ export const currentSponsors: Sponsor[] = [
     gave: 'Charge 3B chargers',
   },
   {
+    name: 'PTC',
+    tier: 'Silver',
+    logo: 'ptc',
+    href: 'https://www.ptc.com/',
+    gave: 'Monetary support',
+  },
+  {
+    name: 'FRCTees',
+    tier: 'Bronze',
+    logo: 'frctees',
+    href: 'https://frctees.com/',
+    gave: 'Discounted merchandise',
+  },
+  {
     name: 'GitHub',
     tier: NONPROFIT_TIER,
     logo: 'github',
