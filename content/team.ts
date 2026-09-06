@@ -62,6 +62,36 @@ export const members: Member[] = [
     // <!-- PLACEHOLDER: Nico's prior FTC team, if he came from one. -->
     photo: '/team/nico.webp',
   },
+  // The three below supplied their own details in #student website update pt. 2
+  // on 2026-09-03. Names are the public names they each asked for, so two of
+  // them are full names and the rest of the roster is first names — that is
+  // their choice, not an inconsistency to tidy up. None of the three has a
+  // portrait in the repo yet, so their cards show an initial.
+  {
+    name: 'Alejandro',
+    role: 'Hardware',
+    experience: 'Eighth year in FIRST',
+    // <!-- PLACEHOLDER: Alejandro's alumni line. He is still captain of FTC 750,
+    //      so "formerly" would be wrong, and he left the wording to the team:
+    //      "Im still technically captain of 750 so idk what u wanna do there".
+    //      Needs his answer before anything goes here. -->
+    // <!-- PLACEHOLDER: portrait. He attached one in the thread; it has not been
+    //      cropped into /public/team/ yet. -->
+  },
+  {
+    name: 'Ian Kong',
+    role: 'Software / Business',
+    experience: 'First year in FIRST',
+    // No formerTeam on purpose: he confirmed "No previous team".
+    // <!-- PLACEHOLDER: portrait. He said he would send one. -->
+  },
+  {
+    name: 'Dohun Kim',
+    role: 'Programming / Business / CAD',
+    formerTeam: 'FTC 22489, captain',
+    experience: 'Fifth year in FIRST',
+    // <!-- PLACEHOLDER: portrait. He said one was coming. -->
+  },
 ];
 
 /**

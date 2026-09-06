@@ -223,5 +223,7 @@ designed empty state on the live site rather than a gap:
 | ----------------------------------- | --------------------------------------------------------------- | ------------------------- |
 | Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied              |
 | Nippurn's and Nico's years in FIRST | `content/team.ts` → `members` → `experience`                    | Not supplied              |
+| Alejandro, Ian and Dohun portraits  | `public/team/` (square, 320×320)                                | Not supplied              |
+| Alejandro's alumni line             | `content/team.ts` → `members` → `formerTeam`                    | Still captain of FTC 750  |
 | BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production |
 | Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write       |
