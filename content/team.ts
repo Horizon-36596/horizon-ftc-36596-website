@@ -62,6 +62,40 @@ export const members: Member[] = [
     // <!-- PLACEHOLDER: Nico's prior FTC team, if he came from one. -->
     photo: '/team/nico.webp',
   },
+  {
+    name: 'Alejandro',
+    role: 'Hardware',
+    experience: 'Eighth year in FIRST',
+    // <!-- PLACEHOLDER: Alejandro's alumni line. He said "Im still technically
+    // captain of 750 so idk what u wanna do there" (2026-09-03), which rules out
+    // a plain "formerly FTC 750" — he has not said what he wants written here. -->
+    // <!-- PLACEHOLDER: photo. He attached one in the thread (2026-09-03), but
+    // the file itself was not delivered to this checkout — only its filename. -->
+  },
+  {
+    name: 'Ian Kong',
+    role: 'Software / Business',
+    experience: 'First year in FIRST',
+    // No formerTeam: he confirmed "No previous team" (2026-09-03).
+    // <!-- PLACEHOLDER: photo. He offered his school photo (2026-09-18), but
+    // the file itself was not delivered to this checkout — only its filename. -->
+  },
+  {
+    name: 'Dohun Kim',
+    role: 'Programming / Business / CAD',
+    formerTeam: 'FTC 22489, captain',
+    experience: 'Fifth year in FIRST',
+    // <!-- PLACEHOLDER: photo. He posted one in the thread (2026-09-07), but
+    // the file itself was not delivered to this checkout — only its filename. -->
+  },
+  {
+    name: 'Preetham KSK',
+    role: 'Programming',
+    experience: 'First year in FIRST',
+    // No formerTeam: he confirmed "No experience beforehand" (2026-09-06).
+    // No photo: team instruction 2026-09-19 was to leave his card on the
+    // designed initial-letter placeholder rather than wait on a photo.
+  },
 ];
 
 /**
