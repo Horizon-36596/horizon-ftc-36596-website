@@ -219,9 +219,19 @@ impact figures, socials, and the fact that there are no signed sponsors yet.
 Still outstanding. Each one is a marked placeholder in the code, and each has a
 designed empty state on the live site rather than a gap:
 
-| What                                | Where it goes                                                   | Why it's blocked          |
-| ----------------------------------- | --------------------------------------------------------------- | ------------------------- |
-| Four member portraits               | `public/team/{levin,saket,nippurn,nico}.webp` (square, 320×320) | Not supplied              |
-| Nippurn's and Nico's years in FIRST | `content/team.ts` → `members` → `experience`                    | Not supplied              |
-| BIOBUZZ robot photos + write-up     | `public/robots/biobuzz/`, `content/robots.ts`                   | Robot still in production |
-| Ender's design story and subsystems | `content/robots.ts` → `ender`                                   | The team's to write       |
+- **Alejandro's alumni line** — `content/team.ts` → `members` →
+  `formerTeam`. He is still nominally captain of FTC 750, so he has not said
+  what to write instead of a plain "formerly."
+- **Alejandro's portrait is a casual photo** — `public/team/alejandro.webp`.
+  It is a night snapshot at a lights display, cap on, with a strong colour
+  cast, and it sits beside school and studio portraits. It is the photo he
+  supplied, so it stands until he supplies another.
+- **Thomas Karl Zhang Moody's subteam and year in FIRST** —
+  `content/team.ts` → `members`. He has given his name, his former team
+  (FTC 12599) and a photo, but not the rest of the intake questions, and
+  `role` is a required field. He is not on the page yet, and his photo is
+  not in the repository.
+- **BIOBUZZ robot photos + write-up** — `public/robots/biobuzz/`,
+  `content/robots.ts`. Robot still in production.
+- **Ender's design story and subsystems** — `content/robots.ts` → `ender`.
+  The team's to write.
