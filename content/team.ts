@@ -62,6 +62,44 @@ export const members: Member[] = [
     // <!-- PLACEHOLDER: Nico's prior FTC team, if he came from one. -->
     photo: '/team/nico.webp',
   },
+  // The four below joined over the 2026 offseason and gave their own details in
+  // #student website update pt. 2 on Discord, 2026-09-03 onward. Some asked to
+  // be listed under a full name and some under a first name; that is their
+  // choice, and the roster is not made uniform over the top of it.
+  //
+  // Their photos are the files each of them posted, uncropped. They are not
+  // yet the 320 x 320 WebP the four above are — see docs/SPEC.md.
+  {
+    name: 'Alejandro',
+    role: 'Hardware',
+    experience: 'Eighth year in FIRST',
+    // <!-- PLACEHOLDER: Alejandro's alumni line. He said "Im still technically
+    // captain of 750 so idk what u wanna do there" (2026-09-03), which rules out
+    // a plain "formerly FTC 750" — he has not said what he wants written here. -->
+    photo: '/team/alejandro.jpg',
+  },
+  {
+    name: 'Ian Kong',
+    role: 'Software / Business',
+    experience: 'First year in FIRST',
+    // No formerTeam: he confirmed "No previous team" (2026-09-03).
+    photo: '/team/ian.png',
+  },
+  {
+    name: 'Dohun Kim',
+    role: 'Programming / Business / CAD',
+    formerTeam: 'FTC 22489, captain',
+    experience: 'Fifth year in FIRST',
+    photo: '/team/dohun.png',
+  },
+  {
+    name: 'Preetham KSK',
+    role: 'Programming',
+    experience: 'First year in FIRST',
+    // No formerTeam: he confirmed "No experience beforehand" (2026-09-06).
+    // No photo: team instruction 2026-09-19 was to leave his card on the
+    // designed initial-letter placeholder rather than wait on a photo.
+  },
 ];
 
 /**
