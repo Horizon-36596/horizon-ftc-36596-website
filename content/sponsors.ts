@@ -215,6 +215,13 @@ export const currentSponsors: Sponsor[] = [
     gave: 'Discounted merchandise',
   },
   {
+    name: 'Ascentec',
+    tier: 'Silver',
+    logo: 'ascentec',
+    href: 'https://ascenteceng.com/',
+    gave: '$500 of aluminum sheet and plate stock',
+  },
+  {
     name: 'GitHub',
     tier: NONPROFIT_TIER,
     logo: 'github',
