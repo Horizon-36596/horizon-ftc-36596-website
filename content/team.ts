@@ -67,8 +67,8 @@ export const members: Member[] = [
   // be listed under a full name and some under a first name; that is their
   // choice, and the roster is not made uniform over the top of it.
   //
-  // Their photos are the files each of them posted, uncropped. They are not
-  // yet the 320 x 320 WebP the four above are — see docs/SPEC.md.
+  // Their photos are the files each of them posted, cropped to the same
+  // 320 x 320 WebP treatment as the four above.
   {
     name: 'Alejandro',
     role: 'Hardware',
@@ -76,21 +76,21 @@ export const members: Member[] = [
     // <!-- PLACEHOLDER: Alejandro's alumni line. He said "Im still technically
     // captain of 750 so idk what u wanna do there" (2026-09-03), which rules out
     // a plain "formerly FTC 750" — he has not said what he wants written here. -->
-    photo: '/team/alejandro.jpg',
+    photo: '/team/alejandro.webp',
   },
   {
     name: 'Ian Kong',
     role: 'Software / Business',
     experience: 'First year in FIRST',
     // No formerTeam: he confirmed "No previous team" (2026-09-03).
-    photo: '/team/ian.png',
+    photo: '/team/ian.webp',
   },
   {
     name: 'Dohun Kim',
     role: 'Programming / Business / CAD',
     formerTeam: 'FTC 22489, captain',
     experience: 'Fifth year in FIRST',
-    photo: '/team/dohun.png',
+    photo: '/team/dohun.webp',
   },
   {
     name: 'Preetham KSK',

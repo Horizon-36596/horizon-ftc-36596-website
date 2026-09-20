@@ -219,17 +219,10 @@ impact figures, socials, and the fact that there are no signed sponsors yet.
 Still outstanding. Each one is a marked placeholder in the code, and each has a
 designed empty state on the live site rather than a gap:
 
-- **Three of the portraits are not in house format** — `public/team/`. The
-  four original portraits are square 320×320 WebP. Alejandro's, Ian's and
-  Dohun's are the files they posted, uncropped and unconverted:
-  `alejandro.jpg` is a 709×731 JPEG, `ian.png` a 400×500 PNG, and `dohun.png`
-  a 640×640 PNG. They render correctly, because `Avatar` centre-crops to a
-  circle, but the three together weigh about 770 KB where 45 KB would do.
-  Converting them needs an image tool.
 - **Alejandro's alumni line** — `content/team.ts` → `members` →
   `formerTeam`. He is still nominally captain of FTC 750, so he has not said
   what to write instead of a plain "formerly."
-- **Alejandro's portrait is a casual photo** — `public/team/alejandro.jpg`.
+- **Alejandro's portrait is a casual photo** — `public/team/alejandro.webp`.
   It is a night snapshot at a lights display, cap on, with a strong colour
   cast, and it sits beside school and studio portraits. It is the photo he
   supplied, so it stands until he supplies another.
