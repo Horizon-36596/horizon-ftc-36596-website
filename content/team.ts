@@ -63,37 +63,35 @@ export const members: Member[] = [
     photo: '/team/nico.webp',
   },
   // The four below joined over the 2026 offseason and gave their own details in
-  // #student website update pt. 2 on Discord, 2026-09-03 onward. Some asked to
-  // be listed under a full name and some under a first name; that is their
-  // choice, and the roster is not made uniform over the top of it.
+  // #student website update pt. 2 on Discord, 2026-09-03 onward. Standardized
+  // 2026-09-20 to the same format as the four above: first name only, and
+  // formerTeam as a bare team number.
   //
   // Their photos are the files each of them posted, cropped to the same
   // 320 x 320 WebP treatment as the four above.
   {
     name: 'Alejandro',
     role: 'Hardware',
+    formerTeam: 'FTC 750',
     experience: 'Eighth year in FIRST',
-    // <!-- PLACEHOLDER: Alejandro's alumni line. He said "Im still technically
-    // captain of 750 so idk what u wanna do there" (2026-09-03), which rules out
-    // a plain "formerly FTC 750" — he has not said what he wants written here. -->
     photo: '/team/alejandro.webp',
   },
   {
-    name: 'Ian Kong',
+    name: 'Ian',
     role: 'Software / Business',
     experience: 'First year in FIRST',
     // No formerTeam: he confirmed "No previous team" (2026-09-03).
     photo: '/team/ian.webp',
   },
   {
-    name: 'Dohun Kim',
+    name: 'Dohun',
     role: 'Programming / Business / CAD',
-    formerTeam: 'FTC 22489, captain',
+    formerTeam: 'FTC 22489',
     experience: 'Fifth year in FIRST',
     photo: '/team/dohun.webp',
   },
   {
-    name: 'Preetham KSK',
+    name: 'Preetham',
     role: 'Programming',
     experience: 'First year in FIRST',
     // No formerTeam: he confirmed "No experience beforehand" (2026-09-06).

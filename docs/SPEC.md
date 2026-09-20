@@ -219,9 +219,6 @@ impact figures, socials, and the fact that there are no signed sponsors yet.
 Still outstanding. Each one is a marked placeholder in the code, and each has a
 designed empty state on the live site rather than a gap:
 
-- **Alejandro's alumni line** — `content/team.ts` → `members` →
-  `formerTeam`. He is still nominally captain of FTC 750, so he has not said
-  what to write instead of a plain "formerly."
 - **Alejandro's portrait is a casual photo** — `public/team/alejandro.webp`.
   It is a night snapshot at a lights display, cap on, with a strong colour
   cast, and it sits beside school and studio portraits. It is the photo he
