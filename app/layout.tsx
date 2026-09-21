@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono, Jost, Newsreader } from 'next/font/google';
 import './globals.css';
 import { site } from '@/lib/site';
@@ -34,6 +34,11 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  // Everything below that is a path gets resolved against this. Link previews
+  // need absolute URLs and Next has no way to guess the domain during a static
+  // export, so without it the build warns and every preview image points at
+  // localhost — which fails silently, as a card with no picture.
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.teamName} — ${site.program} Team ${site.teamNumber}`,
     template: `%s — ${site.teamName} (FTC ${site.teamNumber})`,
@@ -43,7 +48,20 @@ export const metadata: Metadata = {
     title: `${site.teamName} — ${site.program} Team ${site.teamNumber}`,
     description: site.description,
     type: 'website',
+    siteName: site.teamName,
+    locale: 'en_US',
+    url: site.url,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${site.teamName} — ${site.program} Team ${site.teamNumber}`,
+    description: site.description,
+  },
+};
+
+// Matches the manifest, so the phone's address bar is the page's own ground.
+export const viewport: Viewport = {
+  themeColor: '#17061D',
 };
 
 export default function RootLayout({
