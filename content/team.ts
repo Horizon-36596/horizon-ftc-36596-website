@@ -78,7 +78,7 @@ export const members: Member[] = [
   },
   {
     name: 'Ian',
-    role: 'Software / Business',
+    role: 'Programming / Business',
     experience: 'First year in FIRST',
     // No formerTeam: he confirmed "No previous team" (2026-09-03).
     photo: '/team/ian.webp',
