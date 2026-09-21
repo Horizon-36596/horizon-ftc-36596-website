@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono, Jost, Newsreader } from 'next/font/google';
 import './globals.css';
 import { site } from '@/lib/site';
@@ -32,6 +32,12 @@ const mono = JetBrains_Mono({
   variable: '--font-mono',
   display: 'swap',
 });
+
+// Tints the browser chrome and the PWA splash screen. The site is dark only,
+// so this is night-950 unconditionally — the same colour body uses.
+export const viewport: Viewport = {
+  themeColor: '#17061d',
+};
 
 export const metadata: Metadata = {
   // Link previews need absolute URLs. Without this Next falls back to
