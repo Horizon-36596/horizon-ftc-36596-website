@@ -54,13 +54,35 @@ export function Frame({
     );
   }
 
-  // A render on a white background punches a bright hole in a dark page unless
-  // the brightness is made to look intentional — hence the light plate.
+  // A render gets the same treatment as the hero rather than a light plate:
+  // cut out, stood on a horizon line with the sunrise glow behind it. A white
+  // plate punches a bright hole in a dark page, and pretending the brightness
+  // is deliberate only half works — putting the robot on the site's own
+  // horizon makes it belong to the page instead.
+  //
+  // This needs a cutout with a transparent background; a render still boxed in
+  // on white will show the box.
   if (isRender) {
     return (
       <div
-        className={`relative overflow-hidden rounded-xl border border-night-700/70 bg-gradient-to-b from-haze-50 to-haze-200 shadow-lifted ${className ?? ''}`}
+        className={`relative ${aspect} overflow-hidden rounded-xl border border-night-700/70 bg-night-900 shadow-lifted ${className ?? ''}`}
       >
+        {/* Light rising behind the robot, same move as a section's glow. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%]"
+          style={{
+            backgroundImage:
+              'radial-gradient(60% 80% at 50% 100%, rgb(248 106 67 / 0.28), rgb(177 56 72 / 0.10) 50%, transparent 75%)',
+          }}
+        />
+
+        {/* The line it stands on. */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-[12%] h-px bg-gradient-to-r from-transparent via-brand-500/70 to-transparent"
+        />
+
         <Image
           src={asset(src)}
           alt={alt}
@@ -68,7 +90,7 @@ export function Frame({
           height={height ?? 900}
           unoptimized
           priority={priority}
-          className="h-auto w-full object-contain"
+          className="absolute bottom-[12%] left-1/2 h-[84%] w-auto max-w-none -translate-x-1/2 object-contain [filter:drop-shadow(0_18px_24px_rgb(0_0_0/0.5))]"
         />
       </div>
     );
