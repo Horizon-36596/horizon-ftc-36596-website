@@ -1,12 +1,33 @@
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1200 1200">
+    viewBox="415 407 370 370">
 
     <!--
-      The brand mark on the night ground. Team-specified 2026-08-17: the mark
-      itself is unchanged from the supplied artwork — same ring, same horizon,
-      same scale — and the only addition is the background it sits on. Do not
-      redraw the geometry to suit small sizes; add the ground and nothing else.
+      The brand mark, at tab size. Team-specified 2026-08-17: the mark itself is
+      unchanged from the supplied artwork — same ring, same horizon, same
+      geometry, same gradients. Do not redraw it to suit small sizes.
+
+      Two things are different from the supplied file, and only these two:
+
+        1. No background. It ships transparent, so it sits on the tab strip
+           rather than in a dark chip that reads as a square at a glance.
+
+        2. The viewBox is cropped to the mark instead of the full 1200 artboard.
+           The supplied artboard leaves the mark occupying about a quarter of
+           the square, which at a 16px favicon put the ring's 25-unit stroke
+           below a third of a pixel — antialiasing then spread it across two
+           pixels at half opacity and it read as a smudge. Cropping to
+           415 407 370 370 centres the square on the ring and leaves an even
+           ~29-unit margin on all four sides, which takes the same stroke to
+           about 1.1px at 16px. The paths below are untouched; only the window
+           onto them moved.
+
+      The horizon runs out through the left and right edges at this crop, which
+      is correct — a horizon is a line that carries on past the frame.
+
+      Raster versions of this file (favicon.ico, the touch icon, the manifest
+      icons) are generated FROM it. Change this and re-run the generator; see
+      docs/BRAND-ASSETS.md.
     -->
 
     <defs>
@@ -51,10 +72,6 @@
         </mask>
 
     </defs>
-
-    <!-- Ground. The mark ships transparent, which on a light tab strip leaves
-         a few stray warm pixels and nothing readable. -->
-    <rect width="1200" height="1200" fill="#17061D"/>
 
     <!-- Horizon -->
     <path
