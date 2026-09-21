@@ -107,21 +107,9 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        // The sun clearing the horizon line. Slow, only on the hero.
-        'sun-rise': {
-          '0%': { opacity: '0', transform: 'translateY(48px) scale(0.94)' },
-          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
-        },
-        // The horizon rule wiping outward from the center.
-        'rule-wipe': {
-          '0%': { transform: 'scaleX(0)' },
-          '100%': { transform: 'scaleX(1)' },
-        },
       },
       animation: {
         rise: 'rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both',
-        'sun-rise': 'sun-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) both',
-        'rule-wipe': 'rule-wipe 1.2s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
     },
   },

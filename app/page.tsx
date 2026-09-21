@@ -115,6 +115,7 @@ export default function HomePage() {
               isRender
               width={cad.imageWidth}
               height={cad.imageHeight}
+              aspect="aspect-[4/3]"
             />
             <p className="mt-4 font-prose text-[0.9375rem] italic leading-relaxed text-haze-400">
               {cad.robotName}, as entered. Horizon competed as{' '}

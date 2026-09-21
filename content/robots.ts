@@ -103,10 +103,10 @@ export const robots: Robot[] = [
     year: 2026,
     status: 'complete',
     tagline: 'First of 80+ submissions at Chain Reaction, entered as 788.',
-    mainImage: '/awards/ender-render.webp',
+    mainImage: '/awards/ender-cutout.webp',
     mainImageIsRender: true,
-    mainImageWidth: 2048,
-    mainImageHeight: 817,
+    mainImageWidth: 703,
+    mainImageHeight: 810,
     description: [
       'Ender is a CAD-only entry: a complete robot modeled in software and judged on the design itself, with no field to test it on and no driver to cover for it. Horizon entered it as 788 in Chain Reaction — the largest FTC CAD competition held to date, with more than 80 submissions — and ranked first.',
       // <!-- PLACEHOLDER: the team's own account of Ender's design decisions.

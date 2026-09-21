@@ -49,10 +49,14 @@ export const cadChampionship = {
   competedAs: '788',
 
   /**
-   * The winning entry's render. Swap the file at this path to update it.
-   * If the file is missing the page shows an instruction panel instead.
+   * The winning entry's render, cut out of its background so it can stand on
+   * the page's horizon line rather than sit on a white plate. Swap the file at
+   * this path to update it, keeping the transparent background. If the file is
+   * missing the page shows an instruction panel instead.
+   *
+   * The uncropped original is kept alongside it at /awards/ender-render.webp.
    */
-  image: '/awards/ender-render.webp',
+  image: '/awards/ender-cutout.webp',
 
   /** Alt text for the render. */
   imageAlt:
@@ -63,8 +67,8 @@ export const cadChampionship = {
    * while the image loads so the page doesn't jump. If you swap the render for
    * one with a different shape, update these two numbers to match.
    */
-  imageWidth: 2048,
-  imageHeight: 817,
+  imageWidth: 703,
+  imageHeight: 810,
 
   /**
    * The entry, described using only confirmed facts. The design story — why the
