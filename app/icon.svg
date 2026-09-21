@@ -1,22 +1,36 @@
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1200 1200">
+    viewBox="0 0 100 100">
 
     <!--
-      The brand mark on the night ground. Team-specified 2026-08-17: the mark
-      itself is unchanged from the supplied artwork — same ring, same horizon,
-      same scale — and the only addition is the background it sits on. Do not
-      redraw the geometry to suit small sizes; add the ground and nothing else.
+      Purpose-drawn tab icon. NOT a crop of the lockup.
+
+      The lockup in public/brand/ is ~2.3:1 — wide and flat. Fitting all of it
+      into a square necessarily leaves the ring small, and the ring's stroke
+      then renders below one device pixel at a 16px favicon, where antialiasing
+      halves its opacity and it reads as a smudge rather than as our mark. That
+      is a property of the aspect ratio, so no amount of reframing fixes it.
+
+      This is the same idea — sun on a horizon, same gradients, same warm ramp —
+      redrawn square-first on a 100-unit grid so the strokes clear a whole pixel:
+      the ring is 11 units (~1.8px at 16px) and the horizon 8.5 at its thickest
+      (~1.4px). The horizon runs off both edges, which reads as continuing past
+      the frame and lets the sun sit larger than a contained version allows.
+
+      The lockup is untouched and is still what BrandMark and every other
+      surface uses. This file is only ever the tab icon.
+
+      An alternative — ring alone, no horizon — is in docs/ for comparison; see
+      the pull request. If that one is chosen, its contents replace this file
+      and the docs copy is deleted.
     -->
 
     <defs>
 
         <!-- Sun -->
         <linearGradient id="sunGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="0%"
-                        y2="100%">
+                        x1="0" y1="0"
+                        x2="0" y2="1">
             <stop offset="0%" stop-color="#FFCB5C"/>
             <stop offset="32%" stop-color="#FFCB5C"/>
             <stop offset="66%" stop-color="#F86A43"/>
@@ -25,10 +39,8 @@
 
         <!-- Horizon -->
         <linearGradient id="horizonGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="0%">
+                        x1="0" y1="0"
+                        x2="1" y2="0">
             <stop offset="0%" stop-color="#B13848"/>
             <stop offset="38%" stop-color="#F86A43"/>
             <stop offset="50%" stop-color="#FF884F"/>
@@ -36,50 +48,48 @@
             <stop offset="100%" stop-color="#B13848"/>
         </linearGradient>
 
+        <!-- Hides the part of the sun that has dipped below the horizon -->
         <mask id="sun-mask">
-            <rect width="1200" height="1200" fill="white"/>
+            <rect width="100" height="100" fill="#fff"/>
 
             <path
                 d="
-                    M205 778
-                    C355 730 515 705 600 705
-                    C685 705 845 730 995 778
-                    L1200 1200
-                    L0 1200
+                    M0 74
+                    C25 68 38 64.5 50 64.5
+                    C62 64.5 75 68 100 74
+                    L100 100
+                    L0 100
                     Z"
-                fill="black"/>
+                fill="#000"/>
         </mask>
 
     </defs>
 
-    <!-- Ground. The mark ships transparent, which on a light tab strip leaves
-         a few stray warm pixels and nothing readable. -->
-    <rect width="1200" height="1200" fill="#17061D"/>
-
     <!-- Horizon -->
     <path
         d="
-            M205 778
-            C355 730 515 705 600 705
-            C685 705 845 730 995 778
-            C865 752 725 738 600 738
-            C475 738 335 752 205 778
+            M0 74
+            C25 68 38 64.5 50 64.5
+            C62 64.5 75 68 100 74
+            L100 81
+            C75 75.5 62 73 50 73
+            C38 73 25 75.5 0 81
             Z"
         fill="url(#horizonGradient)"/>
 
     <!-- Sun -->
     <path
         mask="url(#sun-mask)"
-        d="
-            M600 435
-            A155 155 0 1 1 600 745
-            A155 155 0 1 1 600 435
-
-            M600 460
-            A130 130 0 1 0 600 720
-            A130 130 0 1 0 600 460
-            Z"
+        fill-rule="evenodd"
         fill="url(#sunGradient)"
-        fill-rule="evenodd"/>
+        d="
+            M50 12
+            A30 30 0 1 1 50 72
+            A30 30 0 1 1 50 12
+
+            M50 23
+            A19 19 0 1 0 50 61
+            A19 19 0 1 0 50 23
+            Z"/>
 
 </svg>

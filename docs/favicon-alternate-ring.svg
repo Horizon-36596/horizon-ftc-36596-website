@@ -1,0 +1,48 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100">
+
+    <!--
+      ALTERNATIVE tab icon, under review — not wired up to anything.
+
+      This is the "ring alone" option: the sun with no horizon. It is the most
+      legible of everything tried, because dropping the horizon lets the ring
+      grow to fill the square and its stroke reach 13 units (~2.1px at a 16px
+      favicon). It is also the least distinctive, since at a glance it is a
+      circle and does not say "horizon".
+
+      The shipped icon in app/icon.svg keeps the horizon. If the team prefers
+      this one instead, move its contents into app/icon.svg and delete this
+      file. This file is in docs/ deliberately: next.config.mjs exports only
+      app/ routes and public/, so nothing here is ever deployed.
+    -->
+
+    <defs>
+
+        <!-- Sun -->
+        <linearGradient id="sunGradient"
+                        x1="0" y1="0"
+                        x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFCB5C"/>
+            <stop offset="32%" stop-color="#FFCB5C"/>
+            <stop offset="66%" stop-color="#F86A43"/>
+            <stop offset="100%" stop-color="#B13848"/>
+        </linearGradient>
+
+    </defs>
+
+    <!-- Sun -->
+    <path
+        fill-rule="evenodd"
+        fill="url(#sunGradient)"
+        d="
+            M50 8
+            A42 42 0 1 1 50 92
+            A42 42 0 1 1 50 8
+
+            M50 21
+            A29 29 0 1 0 50 79
+            A29 29 0 1 0 50 21
+            Z"/>
+
+</svg>
