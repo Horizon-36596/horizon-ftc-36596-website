@@ -11,6 +11,13 @@ export const site = {
   location: 'Portland, Oregon',
   foundedYear: 2026,
 
+  /**
+   * Canonical public origin, from public/CNAME. Link previews need absolute
+   * URLs, so Next resolves metadataBase against this; without it og:image
+   * points at localhost and no crawler can fetch the card.
+   */
+  url: 'https://horizon36596.org',
+
   /** Used for page metadata and link previews. */
   description:
     'Horizon is FTC Team 36596, a community nonprofit robotics team in Portland, Oregon, founded in 2026 by leaders from three existing FIRST Tech Challenge teams.',

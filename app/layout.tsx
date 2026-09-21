@@ -34,6 +34,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  // Link previews need absolute URLs. Without this Next falls back to
+  // http://localhost:3000 and the card is unfetchable in production.
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.teamName} — ${site.program} Team ${site.teamNumber}`,
     template: `%s — ${site.teamName} (FTC ${site.teamNumber})`,
