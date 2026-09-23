@@ -1,7 +1,7 @@
 # Team Website Starter Kit
 
-A portable copy of the workflow scaffolding used to build the Seattle Solvers
-(FTC 23511) team website with Claude Code. Team-specific facts have been
+A portable copy of the workflow scaffolding Saket built for FTC team websites
+with Claude Code. Team-specific facts have been
 stripped — fill the `<PLACEHOLDER>` marks in `CLAUDE.md` and go.
 
 ## What's in the box (in-repo, copy directly)
