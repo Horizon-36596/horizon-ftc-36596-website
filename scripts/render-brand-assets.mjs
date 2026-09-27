@@ -244,17 +244,21 @@ await writeFile(p('app', 'favicon.ico'), packIco(icoEntries));
 wrote.push(`app/favicon.ico  ${icoSizes.join(', ')}`);
 
 // 2. Square icons on the brand ground. iOS and Android both draw these inside
-//    their own rounded shape, so the mark is inset rather than bleeding out.
+//    their own rounded shape. The logo is wide and flat, so its ends sit at
+//    mid-height, well clear of the rounded corners — it can run close to the
+//    edges without losing anything.
 const squares = [
-  { file: ['app', 'apple-icon.png'], size: 180, scale: 0.76 },
-  { file: ['public', 'icons', 'icon-192.png'], size: 192, scale: 0.76 },
-  { file: ['public', 'icons', 'icon-512.png'], size: 512, scale: 0.76 },
+  { file: ['app', 'apple-icon.png'], size: 180, scale: 0.88 },
+  { file: ['public', 'icons', 'icon-192.png'], size: 192, scale: 0.88 },
+  { file: ['public', 'icons', 'icon-512.png'], size: 512, scale: 0.88 },
   // Maskable: Android crops to any shape inside the central 80% circle, so the
-  // mark has to fit that circle, not the square.
+  // logo has to fit that circle, not the square. The farthest points from the
+  // centre are the horizon's two tips; at 0.74 they sit about 38% of the side
+  // from centre, inside the 40% safe radius.
   {
     file: ['public', 'icons', 'icon-maskable-512.png'],
     size: 512,
-    scale: 0.54,
+    scale: 0.74,
   },
 ];
 for (const { file, size, scale } of squares) {

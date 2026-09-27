@@ -1,29 +1,29 @@
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="415 407 370 370">
+    viewBox="185 192 830 830">
 
     <!--
-      The brand mark, at tab size. Team-specified 2026-08-17: the mark itself is
-      unchanged from the supplied artwork — same ring, same horizon, same
-      geometry, same gradients. Do not redraw it to suit small sizes.
+      The team logo, at tab size. This is public/brand/horizon-mark-gradient.svg
+      exactly — the logo on the sponsorship package cover, measured against it:
+      horizon 2.55x the ring's width, stroke 8% of it, the same on both — with
+      one change, the viewBox.
 
-      Two things are different from the supplied file, and only these two:
+      The supplied file puts the logo on a 1200 x 1200 artboard with a lot of
+      empty space around it. This crops to the logo's own bounds — the horizon
+      runs x 205-995, the sun's top is y 435 and the horizon's tips are y 778 —
+      with a 20-unit margin at the tips, squared around the logo's centre since
+      a favicon slot is square. The whole logo is in frame, including the full
+      length of the horizon; nothing inside it moved, and nothing was redrawn.
 
-        1. No background. It ships transparent, so it sits on the tab strip
-           rather than in a dark chip that reads as a square at a glance.
+      No background: it ships transparent and sits on the tab strip.
 
-        2. The viewBox is cropped to the mark instead of the full 1200 artboard.
-           The supplied artboard leaves the mark occupying about a quarter of
-           the square, which at a 16px favicon put the ring's 25-unit stroke
-           below a third of a pixel — antialiasing then spread it across two
-           pixels at half opacity and it read as a smudge. Cropping to
-           415 407 370 370 centres the square on the ring and leaves an even
-           ~29-unit margin on all four sides, which takes the same stroke to
-           about 1.1px at 16px. The paths below are untouched; only the window
-           onto them moved.
+      Do not crop tighter than the horizon's tips. An earlier version cropped to
+      the sun and cut the horizon down to a stub just wider than the ring, which
+      made the favicon bolder and also made it stop looking like the logo.
 
-      The horizon runs out through the left and right edges at this crop, which
-      is correct — a horizon is a line that carries on past the frame.
+      Not public/brand/horizon-logo-gradient.svg either. That is a different
+      drawing — thinner ring, much longer horizon — and does not match the
+      team's own material.
 
       Raster versions of this file (favicon.ico, the touch icon, the manifest
       icons) are generated FROM it. Change this and re-run the generator; see
