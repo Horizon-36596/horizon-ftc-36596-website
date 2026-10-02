@@ -226,7 +226,7 @@ export const currentSponsors: Sponsor[] = [
     tier: 'Silver',
     logo: 'protocase',
     href: 'https://www.protocase.com/',
-    gave: '$500 sponsorship',
+    gave: '$500 of custom machined steel parts',
   },
   {
     name: 'GitHub',
