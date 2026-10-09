@@ -205,7 +205,7 @@ export const currentSponsors: Sponsor[] = [
     tier: 'Silver',
     logo: 'ptc',
     href: 'https://www.ptc.com/',
-    gave: 'Monetary support',
+    gave: '$500 in monetary support',
   },
   {
     name: 'FRCTees',
