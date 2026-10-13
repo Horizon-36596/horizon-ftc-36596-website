@@ -168,6 +168,10 @@ export const customAskNote =
 // Same rule as everywhere: nothing here is added until it is real. `gave` is
 // what the supporter actually provided, in their own terms, not a description
 // of what it is worth.
+//
+// No dollar figures. Team instruction 2026-10-13: what an individual sponsor
+// gave stays between them and the team. The band a sponsor sits in already
+// says the range, from the published tier minimums.
 // ---------------------------------------------------------------------------
 import type { SponsorLogoKey } from '@/components/SponsorLogo';
 
@@ -185,7 +189,7 @@ export type SponsorTier =
 export type Sponsor = {
   name: string;
   tier: SponsorTier;
-  /** Key into components/SponsorLogo.tsx. */
+  /** Key into components/sponsorLogoData.ts. */
   logo?: SponsorLogoKey;
   href?: string;
   /** What they actually gave. Shown under the logo. */
@@ -193,6 +197,27 @@ export type Sponsor = {
 };
 
 export const currentSponsors: Sponsor[] = [
+  {
+    name: 'Oregon Students Foundation',
+    tier: 'Gold',
+    logo: 'oregonstudents',
+    href: 'https://www.oregonstudentfoundation.org/',
+    gave: 'Monetary support',
+  },
+  {
+    // No website to link to.
+    name: 'Anubhav Rabbani Investment Firm',
+    tier: 'Gold',
+    logo: 'anubhavrabbani',
+    gave: 'Monetary support',
+  },
+  {
+    name: 'Argosy Foundation',
+    tier: 'Gold',
+    logo: 'argosy',
+    href: 'https://www.argosyfnd.org/',
+    gave: 'FTC SIM Argosy Rookie Team Grant',
+  },
   {
     name: 'Tektite',
     tier: 'Bronze',
@@ -205,7 +230,7 @@ export const currentSponsors: Sponsor[] = [
     tier: 'Silver',
     logo: 'ptc',
     href: 'https://www.ptc.com/',
-    gave: '$500 in monetary support',
+    gave: 'Monetary support',
   },
   {
     name: 'FRCTees',
@@ -219,14 +244,14 @@ export const currentSponsors: Sponsor[] = [
     tier: 'Silver',
     logo: 'ascentec',
     href: 'https://ascenteceng.com/',
-    gave: '$500 of aluminum sheet and plate stock',
+    gave: 'Aluminum sheet and plate stock',
   },
   {
     name: 'Protocase',
     tier: 'Silver',
     logo: 'protocase',
     href: 'https://www.protocase.com/',
-    gave: '$500 of custom machined steel parts',
+    gave: 'Custom machined steel parts',
   },
   {
     name: 'GitHub',

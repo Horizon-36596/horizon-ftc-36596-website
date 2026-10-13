@@ -6,8 +6,9 @@ description: Add a sponsor or supporter to the Horizon website — logo, tier, a
 # Adding a sponsor
 
 Every sponsor shows up in two places from one entry: the logo strip on the home
-page and the wall on `/sponsors`. Both read `content/sponsors.ts`. The logo
-lives in `components/SponsorLogo.tsx`.
+page and the wall on `/sponsors`. Both read `content/sponsors.ts`. The logo's
+paths live in `components/sponsorLogoData.ts`, which also feeds the white merch
+PNGs.
 
 ## 1. Get the facts right first
 
@@ -27,13 +28,22 @@ Ask only for what you cannot find. You need:
   Software or tooling given free through a nonprofit programme (GitHub, Canva)
   is not a donation and goes in `NONPROFIT_TIER`, whatever its list price.
 
+  The amount decides the tier and is never published. Team instruction
+  2026-10-13: no dollar figure for an individual sponsor appears anywhere on
+  the site, in a PR title, or in a commit message (the repo is public). The
+  band already says the range.
+
 - **`gave`**: what they actually provided, in their own terms, shown under the
-  logo. `'Charge 3B chargers'`, `'$500 of aluminum sheet and plate stock'`,
-  `'Monetary support'`. Never invent the form of a gift. If you are told an
-  amount but not whether it was money, parts or a discount, write only what you
-  were told (`'$500 sponsorship'`) and say in the PR that it can be made more
-  specific.
-- **`href`**: the company's own homepage.
+  logo, with no amount. `'Charge 3B chargers'`, `'Aluminum sheet and plate
+stock'`, `'FTC SIM Argosy Rookie Team Grant'`, `'Monetary support'`. Never
+  invent the form of a gift. If you are told an amount but not whether it was
+  money, parts or a discount, ask, or use `'Monetary support'` and say in the
+  PR that it is assumed.
+- **`href`**: the company's own homepage. Leave it off if they have none; the
+  wall and the strip then show the logo without a link.
+- **Tier promises.** Gold and above are owed a customizable paragraph on the
+  website (see `tierBenefits`). Tell the App Lead to ask the sponsor for it;
+  never write it for them.
 
 No sponsor goes on the site until it is real. Do not add a company because it
 was approached, or might give.
@@ -86,7 +96,13 @@ Map tones by their contrast with the ground, the way the original sits on
 white: darkest at full ink, the palest furthest back. Merge any tones that end
 up the same.
 
-**Add it to `components/SponsorLogo.tsx`:**
+**Keep it light.** Every path is inlined on the home page and `/sponsors`.
+Potrace output is long, so minify it: absolute to relative commands, and
+integer coordinates on a grid with about 3000 units on the mark's longest side.
+That is fine enough for a 3000 px merch print and keeps a traced wordmark near
+10–15 KB.
+
+**Add it to `components/sponsorLogoData.ts`:**
 
 1. A `<NAME>_PATH` constant, with a comment saying exactly where the artwork
    came from.
@@ -99,8 +115,19 @@ up the same.
      until it carries the same weight.
    - `fillRule`, if it is needed.
 
-Save the original-colour version, as paths, at `public/sponsors/<key>.svg` for
-print and the sponsorship deck.
+Save the sponsor's own file, as found, at `public/sponsors/<key>.<ext>` for
+print and the sponsorship deck: their SVG, or their PNG if that is all there is.
+
+**Regenerate the white merch PNGs** so the new logo is in the set the team
+prints from:
+
+```bash
+pnpm add -D puppeteer-core
+node --experimental-strip-types scripts/render-sponsor-logos.mjs
+pnpm remove puppeteer-core
+```
+
+They land in `merch/sponsor-logos-white/`. Commit them with the sponsor.
 
 ## 3. The entry
 
@@ -118,6 +145,7 @@ The App Lead does not read code. They look at the site. So you look first:
   folder, at `deviceScaleFactor: 2`. Do not add it to this repo.
 - Check:
   - holes and counters are open;
+  - tiles in a row stay the same height;
   - the weight matches its neighbours;
   - the strip still wraps cleanly on mobile.
 - Stop the dev server before `pnpm verify`. Its `next build` overwrites the
