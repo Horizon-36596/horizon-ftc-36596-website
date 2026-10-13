@@ -170,7 +170,7 @@ Launch set, ordered by value:
      nonprofit programme. That band is recognition only — it is deliberately
      **not** a column in the tier table, because the team has not defined any
      benefits for it and inventing them is out of bounds.
-   - Logos are inlined as single-colour paths in `components/SponsorLogo.tsx`
+   - Logos are inlined as single-colour paths in `components/sponsorLogoData.ts`
      so one wall can hold a wordmark and an app mark without looking like three
      websites. Each needs an `optical` multiplier — equal pixel heights do not
      read as equal weight. Original vectors are archived in `public/sponsors/`.

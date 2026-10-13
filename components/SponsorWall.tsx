@@ -49,7 +49,7 @@ function LogoTile({ sponsor }: { sponsor: Sponsor }) {
   );
 
   const shell =
-    'group flex min-h-[13rem] flex-col items-center justify-center bg-night-850 px-6 py-10 text-center transition-colors duration-300';
+    'group flex h-full min-h-[13rem] flex-col items-center justify-center bg-night-850 px-6 py-10 text-center transition-colors duration-300';
 
   return sponsor.href ? (
     <a
@@ -124,32 +124,47 @@ export function SponsorWall() {
 export function SponsorStrip() {
   if (currentSponsors.length === 0) return null;
 
+  // Biggest band first, matching the wall. The sort is stable, so sponsors
+  // within a band keep the order they have in content/sponsors.ts.
+  const ordered = [...currentSponsors].sort(
+    (a, b) =>
+      sponsorTierOrder.indexOf(a.tier) - sponsorTierOrder.indexOf(b.tier),
+  );
+
   return (
     <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
       <ul className="flex flex-wrap items-center gap-x-10 gap-y-7 sm:gap-x-14">
-        {currentSponsors.map((sponsor) => (
-          <li key={sponsor.name}>
-            <a
-              href={sponsor.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group block"
-            >
-              {sponsor.logo ? (
-                <SponsorLogo
-                  logo={sponsor.logo}
-                  name={sponsor.name}
-                  height={30}
-                  className="max-w-full text-haze-300 transition-colors duration-200 group-hover:text-haze-50"
-                />
+        {ordered.map((sponsor) => {
+          const mark = sponsor.logo ? (
+            <SponsorLogo
+              logo={sponsor.logo}
+              name={sponsor.name}
+              height={30}
+              className="max-w-full text-haze-300 transition-colors duration-200 group-hover:text-haze-50"
+            />
+          ) : (
+            <span className="text-[1.0625rem] text-haze-200">
+              {sponsor.name}
+            </span>
+          );
+
+          return (
+            <li key={sponsor.name}>
+              {sponsor.href ? (
+                <a
+                  href={sponsor.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block"
+                >
+                  {mark}
+                </a>
               ) : (
-                <span className="text-[1.0625rem] text-haze-200">
-                  {sponsor.name}
-                </span>
+                <span className="block">{mark}</span>
               )}
-            </a>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
 
       <Link href="/sponsors/" className="btn-link group shrink-0">
