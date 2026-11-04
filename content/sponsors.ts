@@ -240,6 +240,13 @@ export const currentSponsors: Sponsor[] = [
     gave: 'Discounted merchandise',
   },
   {
+    name: 'West3D',
+    tier: 'Bronze',
+    logo: 'west3d',
+    href: 'https://west3d.com/',
+    gave: '3D printer filament',
+  },
+  {
     name: 'Ascentec',
     tier: 'Silver',
     logo: 'ascentec',
