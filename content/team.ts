@@ -98,6 +98,14 @@ export const members: Member[] = [
     // No photo: team instruction 2026-09-19 was to leave his card on the
     // designed initial-letter placeholder rather than wait on a photo.
   },
+  {
+    name: 'Jairo',
+    role: 'Build / Business',
+    formerTeam: 'FTC 750',
+    experience: 'Third year in FIRST',
+    // No photo yet: the team is getting a new one (2026-11-05). Add
+    // photo: '/team/jairo.webp' once it arrives.
+  },
 ];
 
 /**
