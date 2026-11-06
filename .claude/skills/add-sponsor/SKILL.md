@@ -161,4 +161,6 @@ The App Lead does not read code. They look at the site. So you look first:
   - the tier and the `gave` text;
   - anything assumed.
 - No attribution lines.
-- Merge once CI is green, then confirm the live site shows the logo.
+- Merge once CI is green, then run `pnpm publish:pages` from an up-to-date
+  `main` (merging alone does not publish; see `CLAUDE.md`) and confirm the
+  live site shows the logo.
