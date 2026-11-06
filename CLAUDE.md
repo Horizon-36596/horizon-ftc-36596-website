@@ -9,7 +9,7 @@ judges, prospective members, and the FTC community. The bar: better than any
 existing robotics team website, with genuinely excellent UI.
 
 Stack: **Next.js (App Router) + TypeScript + Tailwind CSS**, statically exported
-(`output: 'export'`) and deployed to **GitHub Pages** via GitHub Actions. No
+(`output: 'export'`) and served by **GitHub Pages** from the `gh-pages` branch. No
 backend, no database — content lives in the repo (MDX/TS data files).
 
 Spec lives in: `docs/SPEC.md` (design intent + researched best practices).
@@ -40,6 +40,11 @@ treat `docs/ROUTINE.md` as authoritative alongside this file.
 - **pnpm, not npm.** Verify before pushing: `pnpm verify` (typecheck + lint +
   format check + build).
 - BACKLOG state changes commit directly to `main`; feature work goes via PR.
+- **Merging does not publish.** GitHub Actions cannot run while the team's
+  GitHub account is billing-locked (since 2026-11-03), so CI and `deploy.yml`
+  fail on every push. After merging, run `pnpm publish:pages` from an
+  up-to-date `main`: it builds and pushes the site to `gh-pages`, live in about
+  a minute. See `scripts/publish-pages.mjs`, including how to switch back.
 - **No new dependencies** beyond the fixed stack without asking in the PR.
   Exception: tiny, well-known, zero-config UI utilities (e.g. `clsx`,
   `framer-motion`) may be added if the spec calls for the effect — note in PR body.
