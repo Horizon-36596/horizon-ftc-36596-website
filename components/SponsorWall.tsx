@@ -65,6 +65,22 @@ function LogoTile({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
+/**
+ * Classes for the tile at `index` in a band of `count`, so the band's last row
+ * has no empty cells: on two columns an odd band's last tile spans both, and
+ * on three columns it spans what the row leaves over. Bands of one, two and
+ * four never use three columns, so they need nothing here.
+ */
+function lastTileSpan(count: number, index: number) {
+  if (index !== count - 1 || count < 3 || count === 4) return undefined;
+  const sm = count % 2 === 1 ? 'sm:col-span-2' : '';
+  const lg =
+    count % 3 === 1 ? 'lg:col-span-3' : count % 3 === 2 ? 'lg:col-span-2' : '';
+  // A band that fills three columns exactly still needs its sm span undone.
+  const reset = count % 3 === 0 && sm ? 'lg:col-span-1' : '';
+  return [sm, lg, reset].filter(Boolean).join(' ') || undefined;
+}
+
 export function SponsorWall() {
   const bands = sponsorTierOrder
     .map((tier) => ({
@@ -87,20 +103,23 @@ export function SponsorWall() {
             />
           </div>
 
-          {/* Column count follows the band's own size. A two-column grid
-              holding one sponsor leaves a lit empty cell beside it, which
-              reads as a sponsor who dropped out. */}
+          {/* Column count follows the band's own size, and the last tile
+              stretches over any cells its row would leave empty. A lit empty
+              cell reads as a sponsor who dropped out. */}
           <ul
             className={`mt-7 grid gap-px overflow-hidden rounded-xl border border-night-700/70 bg-night-700/70 ${
               band.sponsors.length === 1
                 ? ''
-                : band.sponsors.length === 2
+                : band.sponsors.length === 2 || band.sponsors.length === 4
                   ? 'sm:grid-cols-2'
                   : 'sm:grid-cols-2 lg:grid-cols-3'
             }`}
           >
-            {band.sponsors.map((sponsor) => (
-              <li key={sponsor.name}>
+            {band.sponsors.map((sponsor, j) => (
+              <li
+                key={sponsor.name}
+                className={lastTileSpan(band.sponsors.length, j)}
+              >
                 <LogoTile sponsor={sponsor} />
               </li>
             ))}

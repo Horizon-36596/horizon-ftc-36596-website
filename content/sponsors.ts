@@ -247,6 +247,14 @@ export const currentSponsors: Sponsor[] = [
     gave: '3D printer filament',
   },
   {
+    // RMFG's sponsor programme checks for a link to exactly this URL.
+    name: 'RMFG',
+    tier: 'Bronze',
+    logo: 'rmfg',
+    href: 'https://www.rmfg.com',
+    gave: 'Custom parts credit',
+  },
+  {
     name: 'Ascentec',
     tier: 'Silver',
     logo: 'ascentec',
