@@ -1,0 +1,49 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 1200">
+
+    <defs>
+        <mask id="sun-mask">
+            <!-- Everything starts visible -->
+            <rect width="1200" height="1200" fill="white"/>
+
+            <!-- Hide everything below the horizon -->
+            <path
+                d="
+                    M205 778
+                    C355 730 515 705 600 705
+                    C685 705 845 730 995 778
+                    L1200 1200
+                    L0 1200
+                    Z"
+                fill="black"/>
+        </mask>
+    </defs>
+
+    <!-- Horizon (UNCHANGED) -->
+    <path
+        d="
+            M205 778
+            C355 730 515 705 600 705
+            C685 705 845 730 995 778
+            C865 752 725 738 600 738
+            C475 738 335 752 205 778
+            Z"
+        fill="#FFFFFF"/>
+
+    <!-- Sun -->
+    <path
+        mask="url(#sun-mask)"
+        d="
+            M600 435
+            A155 155 0 1 1 600 745
+            A155 155 0 1 1 600 435
+
+            M600 460
+            A130 130 0 1 0 600 720
+            A130 130 0 1 0 600 460
+            Z"
+        fill="#FFFFFF"
+        fill-rule="evenodd"/>
+
+</svg>

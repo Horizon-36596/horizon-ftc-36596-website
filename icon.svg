@@ -1,0 +1,102 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="185 192 830 830">
+
+    <!--
+      The team logo, at tab size. This is public/brand/horizon-mark-gradient.svg
+      exactly — the logo on the sponsorship package cover, measured against it:
+      horizon 2.55x the ring's width, stroke 8% of it, the same on both — with
+      one change, the viewBox.
+
+      The supplied file puts the logo on a 1200 x 1200 artboard with a lot of
+      empty space around it. This crops to the logo's own bounds — the horizon
+      runs x 205-995, the sun's top is y 435 and the horizon's tips are y 778 —
+      with a 20-unit margin at the tips, squared around the logo's centre since
+      a favicon slot is square. The whole logo is in frame, including the full
+      length of the horizon; nothing inside it moved, and nothing was redrawn.
+
+      No background: it ships transparent and sits on the tab strip.
+
+      Do not crop tighter than the horizon's tips. An earlier version cropped to
+      the sun and cut the horizon down to a stub just wider than the ring, which
+      made the favicon bolder and also made it stop looking like the logo.
+
+      Not public/brand/horizon-logo-gradient.svg either. That is a different
+      drawing — thinner ring, much longer horizon — and does not match the
+      team's own material.
+
+      Raster versions of this file (favicon.ico, the touch icon, the manifest
+      icons) are generated FROM it. Change this and re-run the generator; see
+      docs/BRAND-ASSETS.md.
+    -->
+
+    <defs>
+
+        <!-- Sun -->
+        <linearGradient id="sunGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%">
+            <stop offset="0%" stop-color="#FFCB5C"/>
+            <stop offset="32%" stop-color="#FFCB5C"/>
+            <stop offset="66%" stop-color="#F86A43"/>
+            <stop offset="100%" stop-color="#B13848"/>
+        </linearGradient>
+
+        <!-- Horizon -->
+        <linearGradient id="horizonGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%">
+            <stop offset="0%" stop-color="#B13848"/>
+            <stop offset="38%" stop-color="#F86A43"/>
+            <stop offset="50%" stop-color="#FF884F"/>
+            <stop offset="62%" stop-color="#F86A43"/>
+            <stop offset="100%" stop-color="#B13848"/>
+        </linearGradient>
+
+        <mask id="sun-mask">
+            <rect width="1200" height="1200" fill="white"/>
+
+            <path
+                d="
+                    M205 778
+                    C355 730 515 705 600 705
+                    C685 705 845 730 995 778
+                    L1200 1200
+                    L0 1200
+                    Z"
+                fill="black"/>
+        </mask>
+
+    </defs>
+
+    <!-- Horizon -->
+    <path
+        d="
+            M205 778
+            C355 730 515 705 600 705
+            C685 705 845 730 995 778
+            C865 752 725 738 600 738
+            C475 738 335 752 205 778
+            Z"
+        fill="url(#horizonGradient)"/>
+
+    <!-- Sun -->
+    <path
+        mask="url(#sun-mask)"
+        d="
+            M600 435
+            A155 155 0 1 1 600 745
+            A155 155 0 1 1 600 435
+
+            M600 460
+            A130 130 0 1 0 600 720
+            A130 130 0 1 0 600 460
+            Z"
+        fill="url(#sunGradient)"
+        fill-rule="evenodd"/>
+
+</svg>
